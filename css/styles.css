@@ -18,3 +18,12 @@ body {
     position: relative;
     top: -20px;
 }
+
+/* Vega-Lite parameter controls styling */
+.vega-embed .vega-bindings label {
+    font-size: 15px !important;
+}
+
+.vega-embed .vega-bindings select {
+    font-size: 15px !important;
+}
