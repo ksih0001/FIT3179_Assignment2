@@ -14,6 +14,7 @@
 <body>
   
 <div id="choropleth_map"></div>
+<div id="bar_chart"></div>
 
 <script type="text/javascript">
   console.log("Starting to load choropleth map...");
@@ -25,6 +26,16 @@
   }).catch(function(error) {
     console.error("Error loading map:", error);
     document.getElementById('choropleth_map').innerHTML = '<p>Error loading map: ' + error.message + '</p>';
+  });
+
+  console.log("Starting to load bar chart...");
+  
+  var barSpec = "js/bar_chart.vg.json";
+  vegaEmbed('#bar_chart', barSpec).then(function(result) {
+    console.log("Bar chart loaded successfully!");
+  }).catch(function(error) {
+    console.error("Error loading bar chart:", error);
+    document.getElementById('bar_chart').innerHTML = '<p>Error loading bar chart: ' + error.message + '</p>';
   });
 </script>
 
