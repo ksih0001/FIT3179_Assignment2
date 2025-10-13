@@ -1,43 +1,208 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <!-- Import Vega & Vega-Lite (does not have to be from CDN) -->
-  <script src="https://cdn.jsdelivr.net/npm/vega@5.22.1"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.5.0"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.21.0"></script>
-  
-  <!-- CSS file -->
-  <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Malaysia Road Safety 2003–2019 | National & States</title>
 
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.28.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.20.1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.25.0"></script>
 
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  
-<div id="choropleth_map"></div>
-<div id="bar_chart"></div>
 
-<script type="text/javascript">
-  console.log("Starting to load choropleth map...");
-  
-  var spec2 = "js/choropleth_map.vg.json";
-  vegaEmbed('#choropleth_map', spec2).then(function(result) {
-    console.log("Map loaded successfully!");
-    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-  }).catch(function(error) {
-    console.error("Error loading map:", error);
-    document.getElementById('choropleth_map').innerHTML = '<p>Error loading map: ' + error.message + '</p>';
-  });
+<!-- HEADER -->
+<header class="main-header">
+    <h1>Malaysia Road Safety: Risks, Burden, and Change (2000–2019)</h1>
+    <h2>SEA context (2000–2019) • National outcomes (1997–2016) • State patterns (2003–2019)</h2>
+    <div class="header-meta">
+        <p><strong>Author:</strong> Sih Kai Yin (Student ID: 35500336) | <strong>Date:</strong> October 2025</p>
+        <p><strong>Data Sources:</strong></p>
+        <p>• WHO Global Status Reports: Country deaths and rates (2000–2019)</p>
+        <p>• Malaysian Road Safety Reports: National crashes, deaths, injuries (1997–2016)</p>
+        <p>• State deaths: 2003–2019 | State population time series: 1995–2021</p>
+    </div>
+</header>
 
-  console.log("Starting to load bar chart...");
-  
-  var barSpec = "js/bar_chart.vg.json";
-  vegaEmbed('#bar_chart', barSpec).then(function(result) {
-    console.log("Bar chart loaded successfully!");
-  }).catch(function(error) {
-    console.error("Error loading bar chart:", error);
-    document.getElementById('bar_chart').innerHTML = '<p>Error loading bar chart: ' + error.message + '</p>';
-  });
-</script>
+<!-- GLOBAL CONTROLS -->
+<section class="global-controls">
+    <div class="container">
+        <h3>GLOBAL CONTROLS</h3>
+        <div class="year-control">
+            <label>
+                <strong>Year:</strong> <span id="global-year-display">2019</span>
+                <input type="range" id="global-year-slider" min="2003" max="2019" value="2019" step="1">
+            </label>
+        </div>
+        <p class="control-notes">
+            Updates: Choropleth, State Ranking Bar, Donut, Radial, Scatter (defaults).<br>
+            Vertical Year guide: Area (if within 1997–2016), Trellis (always visible).<br>
+            Click any state in Map/Bar/Donut/Scatter/Radial to highlight it everywhere.
+        </p>
+    </div>
+</section>
+
+<!-- SECTION 1: OVERVIEW -->
+<section class="section">
+    <div class="container">
+        <div class="section-header">
+            <h3>SECTION 1 — OVERVIEW</h3>
+            <p class="subtitle">Regional Context & National Dynamics</p>
+        </div>
+
+        <div class="two-column-layout">
+            <!-- Context & Narrative -->
+            <div class="narrative-box">
+                <h4>Context & Narrative</h4>
+                <ul>
+                    <li>Malaysia experienced rapid motorization from 1997–2016 (vehicles +223%).</li>
+                    <li>Crashes rose strongly, but deaths rose modestly.</li>
+                    <li>Read rates with counts (Section 3) to avoid bias from small populations.</li>
+                </ul>
+                <div class="annotation">
+                    <strong>Annotation:</strong> Malaysia's 2019 rate is mid-high in SEA.
+                </div>
+            </div>
+
+            <!-- SEA Bar Chart -->
+            <div class="vis-card">
+                <h4>(1) BAR CHART — SEA death rate rankings (2019)</h4>
+                <p class="vis-subtitle">Malaysia highlighted in Tenne (#C85200)</p>
+                <div id="sea-heatmap"></div>
+                <p class="interaction-note">Interactions: Hover bar → Country/Rate.</p>
+            </div>
+        </div>
+
+        <!-- Stacked Area Chart -->
+        <div class="vis-card full-width">
+            <h4>(2) STACKED AREA — Outcome counts (Malaysia, 1997–2016)</h4>
+            <div id="stacked-area"></div>
+            <div class="annotation">
+                "Severity paradox" — despite more crashes, deaths grew much less.<br>
+                <strong>Footnote:</strong> 2017 outcomes contain TBA; chart shows complete 1997–2016 only.
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SECTION 2: HERO MAP -->
+<section class="section hero-section">
+    <div class="container">
+        <div class="section-header">
+            <h3>SECTION 2 — HERO MAP</h3>
+            <p class="subtitle">Geographic Distribution of Road Safety Risk</p>
+        </div>
+
+        <div class="vis-card full-width">
+            <h4>(3) CHOROPLETH — Deaths per 100,000 population by State</h4>
+            <p class="vis-subtitle">Legend: low ── ▁ ▁▂ ▃ ▄ ▅ ▆ ▇ █ ── high (color-blind safe)</p>
+            <div id="choropleth"></div>
+            <div class="annotation">
+                Highest rates cluster at N. Sembilan/Perlis; Sabah is substantially lower by rate;
+                Selangor is mid-rate but high in absolute numbers (Section 3).
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SECTION 3: RANK • SHARE • CHANGE -->
+<section class="section">
+    <div class="container">
+        <div class="section-header">
+            <h3>SECTION 3 — RANK • SHARE • CHANGE</h3>
+            <p class="subtitle">Understanding State-Level Patterns</p>
+        </div>
+
+        <div class="three-column-layout">
+            <!-- State Ranking -->
+            <div class="vis-card">
+                <h4>(4) BAR — State ranking</h4>
+                <p class="vis-subtitle">Rank by Rate (/100k)</p>
+                <div class="toggle-control">
+                    <label>
+                        <input type="checkbox" id="ranking-toggle"> Show Absolute Deaths
+                    </label>
+                </div>
+                <div id="state-ranking"></div>
+                <div class="annotation">
+                    Small states can have high rates but low counts (review Absolute toggle).
+                </div>
+            </div>
+
+            <!-- Donut Chart -->
+            <div class="vis-card">
+                <h4>(5) DONUT — Share of national deaths</h4>
+                <p class="vis-subtitle">Top 8 labeled; "Others" aggregates remainder</p>
+                <div id="donut-chart"></div>
+                <div class="annotation">
+                    Shares ≠ rates — big states dominate totals.
+                </div>
+            </div>
+
+            <!-- Scatter Compare -->
+            <div class="vis-card">
+                <h4>(6) SCATTER — Two-year compare</h4>
+                <p class="vis-subtitle">Defaults: A=2003 and B=2019</p>
+                <div class="year-controls">
+                    <label>Year A: <select id="scatter-year-a"></select></label>
+                    <label>Year B: <select id="scatter-year-b"></select></label>
+                </div>
+                <div id="scatter-compare"></div>
+                <div class="annotation">
+                    Below diagonal = improved; above = worse.
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SECTION 4: TRENDS & SHAPE -->
+<section class="section">
+    <div class="container">
+        <div class="section-header">
+            <h3>SECTION 4 — TRENDS & SHAPE</h3>
+            <p class="subtitle">Temporal Patterns by State</p>
+        </div>
+
+        <!-- Trellis -->
+        <div class="vis-card full-width">
+            <h4>(7) TRELLIS — 14 small multiples: deaths by state (2003–2019)</h4>
+            <div id="trellis-chart"></div>
+            <div class="annotation">
+                Sabah improves by 2019; Perlis trends upward; Selangor remains high but with modest decline post-2015.
+            </div>
+        </div>
+
+        <!-- Radial Chart -->
+        <div class="vis-card full-width">
+            <h4>(8) RADIAL — State rates ring</h4>
+            <p class="vis-subtitle">Circular spokes show deaths per 100k</p>
+            <div id="radial-chart"></div>
+            <div class="annotation">
+                Shape makes relative extremes visible at a glance; compare years by dragging the Year slider.
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="main-footer">
+    <div class="container">
+        <h4>Annotations, Definitions, and Metadata</h4>
+        <ul>
+            <li><strong>Read carefully:</strong> Rate per 100,000 = Deaths ÷ Population × 100,000 (state-year level).</li>
+            <li><strong>Names:</strong> "W.P. Kuala Lumpur" deaths are paired with Kuala Lumpur population in the population table.</li>
+            <li><strong>Totals note:</strong> State total deaths in 2019 (6,167) differ from WHO national modeled deaths (7,181); both are shown and labeled clearly where used.</li>
+            <li><strong>Story path:</strong> Start with SEA Heatmap (regional context) → Area (national dynamics and severity paradox) → Choropleth (where risk concentrates) → Ranking/Donut (who contributes and how much) → Scatter (who improved/worsened) → Trellis (state histories) → Radial (shape of current year).</li>
+            <li><strong>Grammar/style:</strong> Plain, active sentences; consistent units and labels; color-blind palette.</li>
+            <li><strong>Credits:</strong> Author, Student ID, Date; data sources listed at header; chart notes and footnotes included on relevant cards.</li>
+        </ul>
+    </div>
+</footer>
+
+<script src="js/main.js"></script>
 
 </body>
 </html>
