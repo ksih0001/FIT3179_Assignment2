@@ -1,0 +1,418 @@
+state,year,population
+Johor,1995,2441.4
+Johor,1996,2503.9
+Johor,1997,2567.5
+Johor,1998,2631.7
+Johor,1999,2699.4
+Johor,2000,2762.5
+Johor,2001,2829.9
+Johor,2002,2893.6
+Johor,2003,2954
+Johor,2004,3014.6
+Johor,2005,3074.4
+Johor,2006,3134.4
+Johor,2007,3193.5
+Johor,2008,3252.3
+Johor,2009,3309.4
+Johor,2010,3362.9
+Johor,2011,3410.5
+Johor,2012,3450.4
+Johor,2013,3474.4
+Johor,2014,3559.8
+Johor,2015,3610.3
+Johor,2016,3651.8
+Johor,2017,3697
+Johor,2018,3749.4
+Johor,2019,3761.2
+Johor,2020,4009.7
+Johor,2021,4020
+Kedah,1995,1500.2
+Kedah,1996,1533.2
+Kedah,1997,1566.9
+Kedah,1998,1601.2
+Kedah,1999,1636.5
+Kedah,2000,1671.9
+Kedah,2001,1703.9
+Kedah,2002,1734.8
+Kedah,2003,1763.7
+Kedah,2004,1792.4
+Kedah,2005,1820.3
+Kedah,2006,1847.5
+Kedah,2007,1874.2
+Kedah,2008,1900.2
+Kedah,2009,1925.3
+Kedah,2010,1949.3
+Kedah,2011,1971.8
+Kedah,2012,2001.1
+Kedah,2013,2039.8
+Kedah,2014,2062.7
+Kedah,2015,2096.5
+Kedah,2016,2119.7
+Kedah,2017,2143.9
+Kedah,2018,2163
+Kedah,2019,2173.7
+Kedah,2020,2131.4
+Kedah,2021,2151.7
+Kelantan,1995,1287.7
+Kelantan,1996,1301.1
+Kelantan,1997,1314.4
+Kelantan,1998,1328.9
+Kelantan,1999,1344.7
+Kelantan,2000,1361.4
+Kelantan,2001,1390
+Kelantan,2002,1416.7
+Kelantan,2003,1440.5
+Kelantan,2004,1463.8
+Kelantan,2005,1486.3
+Kelantan,2006,1507.6
+Kelantan,2007,1529.1
+Kelantan,2008,1549.8
+Kelantan,2009,1570
+Kelantan,2010,1589.9
+Kelantan,2011,1618.8
+Kelantan,2012,1651
+Kelantan,2013,1683.5
+Kelantan,2014,1723.4
+Kelantan,2015,1760.6
+Kelantan,2016,1796.7
+Kelantan,2017,1829
+Kelantan,2018,1860.5
+Kelantan,2019,1883.8
+Kelantan,2020,1792.5
+Kelantan,2021,1812.3
+Melaka,1995,586.1
+Melaka,1996,597.3
+Melaka,1997,608.8
+Melaka,1998,620.5
+Melaka,1999,633.1
+Melaka,2000,646.6
+Melaka,2001,665.8
+Melaka,2002,684.1
+Melaka,2003,701.8
+Melaka,2004,719.8
+Melaka,2005,737.3
+Melaka,2006,755
+Melaka,2007,772.8
+Melaka,2008,790.5
+Melaka,2009,807.8
+Melaka,2010,823.6
+Melaka,2011,833.2
+Melaka,2012,843.2
+Melaka,2013,856.7
+Melaka,2014,871.7
+Melaka,2015,889
+Melaka,2016,901.1
+Melaka,2017,913.1
+Melaka,2018,922.4
+Melaka,2019,928.4
+Melaka,2020,998.4
+Melaka,2021,1004.5
+Negeri Sembilan,1995,787.5
+Negeri Sembilan,1996,802.6
+Negeri Sembilan,1997,818
+Negeri Sembilan,1998,833.5
+Negeri Sembilan,1999,849.5
+Negeri Sembilan,2000,866.1
+Negeri Sembilan,2001,883.7
+Negeri Sembilan,2002,900.3
+Negeri Sembilan,2003,916.8
+Negeri Sembilan,2004,933.7
+Negeri Sembilan,2005,950.3
+Negeri Sembilan,2006,967
+Negeri Sembilan,2007,983.5
+Negeri Sembilan,2008,999.6
+Negeri Sembilan,2009,1014.9
+Negeri Sembilan,2010,1029.5
+Negeri Sembilan,2011,1047.4
+Negeri Sembilan,2012,1057.7
+Negeri Sembilan,2013,1072.2
+Negeri Sembilan,2014,1079.6
+Negeri Sembilan,2015,1088.8
+Negeri Sembilan,2016,1099.3
+Negeri Sembilan,2017,1114
+Negeri Sembilan,2018,1122.9
+Negeri Sembilan,2019,1126.2
+Negeri Sembilan,2020,1200
+Negeri Sembilan,2021,1204.2
+Pahang,1995,1176.5
+Pahang,1996,1200.6
+Pahang,1997,1224.7
+Pahang,1998,1248.8
+Pahang,1999,1272.5
+Pahang,2000,1295.8
+Pahang,2001,1317.3
+Pahang,2002,1338.7
+Pahang,2003,1360
+Pahang,2004,1380.2
+Pahang,2005,1400.8
+Pahang,2006,1421.2
+Pahang,2007,1441.4
+Pahang,2008,1461.6
+Pahang,2009,1481.7
+Pahang,2010,1501.9
+Pahang,2011,1526.8
+Pahang,2012,1547.1
+Pahang,2013,1568.7
+Pahang,2014,1591.7
+Pahang,2015,1607.9
+Pahang,2016,1626.7
+Pahang,2017,1647
+Pahang,2018,1664.7
+Pahang,2019,1671.4
+Pahang,2020,1591.3
+Pahang,2021,1601.5
+Perak,1995,2038.1
+Perak,1996,2047
+Perak,1997,2055.3
+Perak,1998,2066.2
+Perak,1999,2076.7
+Perak,2000,2091.7
+Perak,2001,2129
+Perak,2002,2161.8
+Perak,2003,2192.1
+Perak,2004,2222.1
+Perak,2005,2251.1
+Perak,2006,2279.3
+Perak,2007,2306.4
+Perak,2008,2331.6
+Perak,2009,2355.7
+Perak,2010,2379
+Perak,2011,2402.7
+Perak,2012,2427
+Perak,2013,2447.2
+Perak,2014,2458.8
+Perak,2015,2466.9
+Perak,2016,2482.1
+Perak,2017,2493.2
+Perak,2018,2503.5
+Perak,2019,2508.8
+Perak,2020,2496
+Perak,2021,2515.8
+Perlis,1995,198.8
+Perlis,1996,200.4
+Perlis,1997,202.1
+Perlis,1998,203.8
+Perlis,1999,205.7
+Perlis,2000,207.6
+Perlis,2001,210.4
+Perlis,2002,213.2
+Perlis,2003,216
+Perlis,2004,218.8
+Perlis,2005,221.6
+Perlis,2006,224.4
+Perlis,2007,227.2
+Perlis,2008,230.1
+Perlis,2009,233
+Perlis,2010,235.8
+Perlis,2011,237.3
+Perlis,2012,239.4
+Perlis,2013,242.1
+Perlis,2014,245.1
+Perlis,2015,248.5
+Perlis,2016,251
+Perlis,2017,252
+Perlis,2018,253.5
+Perlis,2019,254
+Perlis,2020,284.9
+Perlis,2021,287.6
+Pulau Pinang,1995,1216.6
+Pulau Pinang,1996,1237.5
+Pulau Pinang,1997,1259
+Pulau Pinang,1998,1282.7
+Pulau Pinang,1999,1307.5
+Pulau Pinang,2000,1332.7
+Pulau Pinang,2001,1361
+Pulau Pinang,2002,1387.3
+Pulau Pinang,2003,1412.2
+Pulau Pinang,2004,1436.6
+Pulau Pinang,2005,1460.4
+Pulau Pinang,2006,1484.1
+Pulau Pinang,2007,1507.8
+Pulau Pinang,2008,1531.3
+Pulau Pinang,2009,1554.3
+Pulau Pinang,2010,1575.9
+Pulau Pinang,2011,1601
+Pulau Pinang,2012,1623.2
+Pulau Pinang,2013,1662.6
+Pulau Pinang,2014,1678.1
+Pulau Pinang,2015,1698.1
+Pulau Pinang,2016,1717.7
+Pulau Pinang,2017,1744.1
+Pulau Pinang,2018,1762.8
+Pulau Pinang,2019,1768.8
+Pulau Pinang,2020,1740.4
+Pulau Pinang,2021,1740
+Sabah,1995,2155.9
+Sabah,1996,2245
+Sabah,1997,2333.7
+Sabah,1998,2423.5
+Sabah,1999,2513.5
+Sabah,2000,2603.5
+Sabah,2001,2663.3
+Sabah,2002,2719.1
+Sabah,2003,2774
+Sabah,2004,2833.4
+Sabah,2005,2897
+Sabah,2006,2962.9
+Sabah,2007,3032.3
+Sabah,2008,3105.1
+Sabah,2009,3181.1
+Sabah,2010,3260
+Sabah,2011,3345.5
+Sabah,2012,3432.7
+Sabah,2013,3611.5
+Sabah,2014,3669.9
+Sabah,2015,3720.5
+Sabah,2016,3802.8
+Sabah,2017,3855.9
+Sabah,2018,3898.4
+Sabah,2019,3904.4
+Sabah,2020,3418.8
+Sabah,2021,3412.6
+Sarawak,1995,1868.1
+Sarawak,1996,1904.5
+Sarawak,1997,1942.4
+Sarawak,1998,1982.1
+Sarawak,1999,2024.5
+Sarawak,2000,2071.5
+Sarawak,2001,2115.6
+Sarawak,2002,2158.3
+Sarawak,2003,2199
+Sarawak,2004,2240.4
+Sarawak,2005,2282.4
+Sarawak,2006,2324.9
+Sarawak,2007,2366.1
+Sarawak,2008,2408.4
+Sarawak,2009,2450.8
+Sarawak,2010,2487.1
+Sarawak,2011,2527.9
+Sarawak,2012,2569.7
+Sarawak,2013,2642.5
+Sarawak,2014,2664
+Sarawak,2015,2701.5
+Sarawak,2016,2738.7
+Sarawak,2017,2766.3
+Sarawak,2018,2791.7
+Sarawak,2019,2806
+Sarawak,2020,2453.7
+Sarawak,2021,2465.6
+Selangor,1995,3173.2
+Selangor,1996,3371.1
+Selangor,1997,3571.9
+Selangor,1998,3777.5
+Selangor,1999,3981.9
+Selangor,2000,4188.9
+Selangor,2001,4317.5
+Selangor,2002,4446.3
+Selangor,2003,4577.3
+Selangor,2004,4712.8
+Selangor,2005,4849.6
+Selangor,2006,4986.2
+Selangor,2007,5127.1
+Selangor,2008,5268.5
+Selangor,2009,5417.8
+Selangor,2010,5502.1
+Selangor,2011,5600.3
+Selangor,2012,5702.4
+Selangor,2013,5904.7
+Selangor,2014,6051.3
+Selangor,2015,6178
+Selangor,2016,6291.5
+Selangor,2017,6380.7
+Selangor,2018,6475
+Selangor,2019,6506.1
+Selangor,2020,6994.4
+Selangor,2021,7014.7
+Terengganu,1995,860
+Terengganu,1996,870.7
+Terengganu,1997,880.4
+Terengganu,1998,889.6
+Terengganu,1999,896.6
+Terengganu,2000,902.6
+Terengganu,2001,920
+Terengganu,2002,936.6
+Terengganu,2003,951.4
+Terengganu,2004,966.6
+Terengganu,2005,981.4
+Terengganu,2006,995.9
+Terengganu,2007,1010.4
+Terengganu,2008,1025.2
+Terengganu,2009,1040.7
+Terengganu,2010,1055.4
+Terengganu,2011,1079
+Terengganu,2012,1094.1
+Terengganu,2013,1113.4
+Terengganu,2014,1140.4
+Terengganu,2015,1161
+Terengganu,2016,1183.4
+Terengganu,2017,1208
+Terengganu,2018,1228.3
+Terengganu,2019,1244.5
+Terengganu,2020,1149.4
+Terengganu,2021,1170.7
+W.P. Kuala Lumpur,1995,1328.9
+W.P. Kuala Lumpur,1996,1342.5
+W.P. Kuala Lumpur,1997,1356.4
+W.P. Kuala Lumpur,1998,1373
+W.P. Kuala Lumpur,1999,1394
+W.P. Kuala Lumpur,2000,1416
+W.P. Kuala Lumpur,2001,1446.2
+W.P. Kuala Lumpur,2002,1474.1
+W.P. Kuala Lumpur,2003,1500.5
+W.P. Kuala Lumpur,2004,1526.4
+W.P. Kuala Lumpur,2005,1551.8
+W.P. Kuala Lumpur,2006,1577.5
+W.P. Kuala Lumpur,2007,1603.3
+W.P. Kuala Lumpur,2008,1628.9
+W.P. Kuala Lumpur,2009,1652.8
+W.P. Kuala Lumpur,2010,1674.8
+W.P. Kuala Lumpur,2011,1693
+W.P. Kuala Lumpur,2012,1702.1
+W.P. Kuala Lumpur,2013,1723.4
+W.P. Kuala Lumpur,2014,1737.4
+W.P. Kuala Lumpur,2015,1780.4
+W.P. Kuala Lumpur,2016,1789.7
+W.P. Kuala Lumpur,2017,1793.2
+W.P. Kuala Lumpur,2018,1790
+W.P. Kuala Lumpur,2019,1782.5
+W.P. Kuala Lumpur,2020,1982.1
+W.P. Kuala Lumpur,2021,1964
+W.P. Labuan,1995,62.7
+W.P. Labuan,1996,65.1
+W.P. Labuan,1997,67.7
+W.P. Labuan,1998,70.5
+W.P. Labuan,1999,73.3
+W.P. Labuan,2000,76.1
+W.P. Labuan,2001,77
+W.P. Labuan,2002,77.8
+W.P. Labuan,2003,78.7
+W.P. Labuan,2004,79.7
+W.P. Labuan,2005,80.8
+W.P. Labuan,2006,82
+W.P. Labuan,2007,83.2
+W.P. Labuan,2008,84.6
+W.P. Labuan,2009,86.3
+W.P. Labuan,2010,88.2
+W.P. Labuan,2011,89.4
+W.P. Labuan,2012,90.5
+W.P. Labuan,2013,91.4
+W.P. Labuan,2014,93.8
+W.P. Labuan,2015,95.1
+W.P. Labuan,2016,96.8
+W.P. Labuan,2017,97.6
+W.P. Labuan,2018,99
+W.P. Labuan,2019,99.3
+W.P. Labuan,2020,95.1
+W.P. Labuan,2021,96
+W.P. Putrajaya,2010,73.4
+W.P. Putrajaya,2011,77.5
+W.P. Putrajaya,2012,78.3
+W.P. Putrajaya,2013,79.7
+W.P. Putrajaya,2014,80.9
+W.P. Putrajaya,2015,83
+W.P. Putrajaya,2016,84.4
+W.P. Putrajaya,2017,87.5
+W.P. Putrajaya,2018,97.2
+W.P. Putrajaya,2019,103.7
+W.P. Putrajaya,2020,109.2
+W.P. Putrajaya,2021,115.2
