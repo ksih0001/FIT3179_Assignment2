@@ -34,6 +34,33 @@ let seaYear = 2019;
 let stateData = null;
 let selectedState = null;
 
+// Store chart views for cross-chart interactivity
+let chartViews = {
+    choropleth: null,
+    groupedBar: null,
+    scatter: null,
+    trellis: null
+};
+
+// ============================================================================
+// CROSS-CHART INTERACTIVITY
+// ============================================================================
+function toggleStateSelection(stateName) {
+    // Toggle selection
+    if (selectedState === stateName) {
+        selectedState = null;
+    } else {
+        selectedState = stateName;
+    }
+
+    // Re-render charts with updated selection
+    renderChoropleth(globalYear);
+    renderGroupedBar(globalYear, document.getElementById('state-mode').value === 'absolute');
+    renderScatter();
+    renderTrellis();
+    renderDeviationBar(globalYear);
+}
+
 // ============================================================================
 // INITIALIZATION
 // ============================================================================
@@ -144,7 +171,7 @@ function populateScatterYearDropdowns() {
 
 
 // ============================================================================
-// CHART 1: SEA HORIZONTAL BAR (Fixed: Thailand color back to blue)
+// CHART 1: SEA HORIZONTAL BAR 
 // ============================================================================
 function renderSEABar(year) {
     const spec = {
@@ -155,55 +182,34 @@ function renderSEABar(year) {
         "transform": [
             {"filter": `datum.year == ${year}`}
         ],
-        "layer": [
-            {
-                "mark": "bar",
-                "encoding": {
-                    "y": {
-                        "field": "country",
-                        "type": "nominal",
-                        "title": null,
-                        "sort": "-x",
-                        "axis": {"labelLimit": 150}
-                    },
-                    "x": {
-                        "field": "rate",
-                        "type": "quantitative",
-                        "title": "Deaths per 100,000 Population",
-                        "scale": {"domain": [0, 35]}
-                    },
-                    "color": {
-                        "condition": {
-                            "test": "datum.country == 'Malaysia'",
-                            "value": COLORS.tenne
-                        },
-                        "value": COLORS.blue
-                    },
-                    "tooltip": [
-                        {"field": "country", "title": "Country"},
-                        {"field": "rate", "title": "Rate per 100k", "format": ".1f"},
-                        {"field": "year", "title": "Year"}
-                    ]
-                }
+        "mark": "bar",
+        "encoding": {
+            "y": {
+                "field": "country",
+                "type": "nominal",
+                "title": null,
+                "sort": "-x",
+                "axis": {"labelLimit": 150}
             },
-            {
-                "transform": [
-                    {"filter": "datum.country == 'Malaysia'"}
-                ],
-                "mark": {
-                    "type": "text",
-                    "align": "left",
-                    "dx": 5,
-                    "fontWeight": "bold",
-                    "color": COLORS.tenne
+            "x": {
+                "field": "rate",
+                "type": "quantitative",
+                "title": "Deaths per 100,000 Population",
+                "scale": {"domain": [0, 40]}
+            },
+            "color": {
+                "condition": {
+                    "test": "datum.country == 'Malaysia'",
+                    "value": COLORS.tenne
                 },
-                "encoding": {
-                    "y": {"field": "country", "type": "nominal"},
-                    "x": {"field": "rate", "type": "quantitative"},
-                    "text": {"field": "rate", "format": ".1f"}
-                }
-            }
-        ]
+                "value": COLORS.blue
+            },
+            "tooltip": [
+                {"field": "country", "title": "Country"},
+                {"field": "rate", "title": "Rate per 100k", "format": ".1f"},
+                {"field": "year", "title": "Year"}
+            ]
+        }
     };
 
     vegaEmbed('#chart1-sea-bar', spec, {actions: false, tooltip: {theme: 'custom'}})
@@ -218,45 +224,104 @@ function renderStackedArea() {
         "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
         "width": 450,
         "height": 300,
-        "data": {"url": "data/national_outcomes.json"},
-        "mark": "area",
-        "encoding": {
-            "x": {
-                "field": "year",
-                "type": "quantitative",
-                "title": "Year",
-                "axis": {"format": "d", "tickCount": 10},
-                "scale": {"domain": [2003, 2016]}
+        "layer": [
+            {
+                "data": {"url": "data/national_outcomes.json"},
+                "mark": "area",
+                "encoding": {
+                    "x": {
+                        "field": "year",
+                        "type": "quantitative",
+                        "title": "Year",
+                        "axis": {"format": "d", "tickCount": 10},
+                        "scale": {"domain": [2003, 2016]}
+                    },
+                    "y": {
+                        "field": "count",
+                        "type": "quantitative",
+                        "title": "Number of Cases",
+                        "stack": "zero"
+                    },
+                    "color": {
+                        "field": "severity",
+                        "type": "nominal",
+                        "scale": {
+                            "domain": ["Deaths", "Serious", "Slight"],
+                            "range": [COLORS.orange, COLORS.mortar, COLORS.picton]
+                        },
+                        "legend": {"title": "Severity", "orient": "top"}
+                    },
+                    "tooltip": [
+                        {"field": "year", "title": "Year"},
+                        {"field": "severity", "title": "Severity"},
+                        {"field": "count", "title": "Count", "format": ","}
+                    ]
+                }
             },
-            "y": {
-                "field": "count",
-                "type": "quantitative",
-                "title": "Number of Cases",
-                "stack": "zero"
+            // Annotation box background
+            {
+                "data": {"values": [{}]},
+                "mark": {
+                    "type": "rect",
+                    "x": 260,
+                    "x2": 440,
+                    "y": 20,
+                    "y2": 95,
+                    "fill": "white",
+                    "stroke": COLORS.mortar,
+                    "strokeWidth": 1.5,
+                    "opacity": 0.9
+                }
             },
-            "color": {
-                "field": "severity",
-                "type": "nominal",
-                "scale": {
-                    "domain": ["Deaths", "Serious", "Slight"],
-                    "range": [COLORS.orange, COLORS.mortar, COLORS.picton]
-                },
-                "legend": {"title": "Severity", "orient": "top"}
+            // Annotation text - line 1
+            {
+                "data": {"values": [{"text": "The Severity Paradox:"}]},
+                "mark": {"type": "text", "fontSize": 11, "fontWeight": "bold", "align": "left", "color": COLORS.mortar},
+                "encoding": {
+                    "x": {"value": 270},
+                    "y": {"value": 35},
+                    "text": {"field": "text"}
+                }
             },
-            "tooltip": [
-                {"field": "year", "title": "Year"},
-                {"field": "severity", "title": "Severity"},
-                {"field": "count", "title": "Count", "format": ","}
-            ]
-        }
+            // Annotation text - line 2
+            {
+                "data": {"values": [{"text": "Total casualties ↓64%"}]},
+                "mark": {"type": "text", "fontSize": 10, "align": "left", "color": COLORS.mortar, "fontWeight": "bold"},
+                "encoding": {
+                    "x": {"value": 270},
+                    "y": {"value": 53},
+                    "text": {"field": "text"}
+                }
+            },
+            // Annotation text - line 3
+            {
+                "data": {"values": [{"text": "BUT Deaths ↑14%"}]},
+                "mark": {"type": "text", "fontSize": 10, "align": "left", "color": COLORS.mortar, "fontWeight": "bold"},
+                "encoding": {
+                    "x": {"value": 270},
+                    "y": {"value": 70},
+                    "text": {"field": "text"}
+                }
+            },
+            // Annotation text - line 4
+            {
+                "data": {"values": [{"text": "(2003–2016)"}]},
+                "mark": {"type": "text", "fontSize": 9, "align": "left", "color": COLORS.mortar, "fontStyle": "italic"},
+                "encoding": {
+                    "x": {"value": 270},
+                    "y": {"value": 85},
+                    "text": {"field": "text"}
+                }
+            }
+        ]
     };
 
-    vegaEmbed('#chart2-stacked-area', spec, {actions: false, tooltip: {theme: 'custom'}})
+    vegaEmbed('#chart2-stacked-area', spec, {actions: false})
         .catch(err => console.error('Error rendering stacked area:', err));
 }
 
 // ============================================================================
-// CHART 3: STACKED SMALL MULTIPLES (Raw values in honest units)
+// CHART 3: STACKED SMALL MULTIPLES 
 // ============================================================================
 function renderMultiLine() {
     // Fetch and pre-process data
@@ -273,27 +338,27 @@ function renderMultiLine() {
                         "data": {"values": rawData},
                         "layer": [
                             {
-                                "mark": {"type": "line", "point": true, "strokeWidth": 2, "color": COLORS.blue},
-                                "encoding": {
-                                    "x": {
-                                        "field": "year",
-                                        "type": "quantitative",
-                                        "title": null,
-                                        "axis": {"format": "d", "labels": false},
-                                        "scale": {"domain": [2003, 2016]}
-                                    },
-                                    "y": {
-                                        "field": "vehicles",
-                                        "type": "quantitative",
-                                        "title": "Vehicles (M)",
-                                        "axis": {"format": ".2s"},
-                                        "scale": {"domain": [8000000, 28000000]}
-                                    },
-                                    "tooltip": [
-                                        {"field": "year", "title": "Year"},
-                                        {"field": "vehicles", "title": "Vehicles", "format": ","}
-                                    ]
-                                }
+                        "mark": {"type": "line", "point": true, "strokeWidth": 2, "color": COLORS.blue},
+                        "encoding": {
+                            "x": {
+                                "field": "year",
+                                "type": "quantitative",
+                                "title": null,
+                                "axis": {"format": "d", "labels": false},
+                                "scale": {"domain": [2003, 2016]}
+                            },
+                            "y": {
+                                "field": "vehicles",
+                                "type": "quantitative",
+                                "title": "Vehicles (M)",
+                                "axis": {"format": ".2s"},
+                                "scale": {"domain": [8000000, 28000000]}
+                            },
+                            "tooltip": [
+                                {"field": "year", "title": "Year"},
+                                {"field": "vehicles", "title": "Vehicles", "format": ","}
+                            ]
+                        }
                             },
                             {
                                 "mark": {"type": "text", "align": "center", "dy": -10, "fontWeight": "bold", "fontSize": 11, "color": COLORS.blue},
@@ -312,27 +377,27 @@ function renderMultiLine() {
                         "data": {"values": rawData},
                         "layer": [
                             {
-                                "mark": {"type": "line", "point": true, "strokeWidth": 2, "color": COLORS.orange},
-                                "encoding": {
-                                    "x": {
-                                        "field": "year",
-                                        "type": "quantitative",
-                                        "title": null,
-                                        "axis": {"format": "d", "labels": false},
-                                        "scale": {"domain": [2003, 2016]}
-                                    },
-                                    "y": {
-                                        "field": "crashes",
-                                        "type": "quantitative",
-                                        "title": "Crashes (K)",
-                                        "axis": {"format": ".3s"},
-                                        "scale": {"domain": [200000, 550000]}
-                                    },
-                                    "tooltip": [
-                                        {"field": "year", "title": "Year"},
-                                        {"field": "crashes", "title": "Crashes", "format": ","}
-                                    ]
-                                }
+                        "mark": {"type": "line", "point": true, "strokeWidth": 2, "color": COLORS.orange},
+                        "encoding": {
+                            "x": {
+                                "field": "year",
+                                "type": "quantitative",
+                                "title": null,
+                                "axis": {"format": "d", "labels": false},
+                                "scale": {"domain": [2003, 2016]}
+                            },
+                            "y": {
+                                "field": "crashes",
+                                "type": "quantitative",
+                                "title": "Crashes (K)",
+                                "axis": {"format": ".3s"},
+                                "scale": {"domain": [200000, 550000]}
+                            },
+                            "tooltip": [
+                                {"field": "year", "title": "Year"},
+                                {"field": "crashes", "title": "Crashes", "format": ","}
+                            ]
+                        }
                             },
                             {
                                 "mark": {"type": "text", "align": "center", "dy": -10, "fontWeight": "bold", "fontSize": 11, "color": COLORS.orange},
@@ -351,27 +416,27 @@ function renderMultiLine() {
                         "data": {"values": rawData},
                         "layer": [
                             {
-                                "mark": {"type": "line", "point": true, "strokeWidth": 2, "color": COLORS.mortar},
-                                "encoding": {
-                                    "x": {
-                                        "field": "year",
-                                        "type": "quantitative",
-                                        "title": "Year",
-                                        "axis": {"format": "d"},
-                                        "scale": {"domain": [2003, 2016]}
-                                    },
-                                    "y": {
-                                        "field": "deaths",
-                                        "type": "quantitative",
-                                        "title": "Deaths",
-                                        "axis": {"format": ".4~s", "values": [6000, 6200, 6400, 6600, 6800, 7000, 7200]},
-                                        "scale": {"domain": [5800, 7300]}
-                                    },
-                                    "tooltip": [
-                                        {"field": "year", "title": "Year"},
-                                        {"field": "deaths", "title": "Deaths", "format": ","}
-                                    ]
-                                }
+                        "mark": {"type": "line", "point": true, "strokeWidth": 2, "color": COLORS.mortar},
+                        "encoding": {
+                            "x": {
+                                "field": "year",
+                                "type": "quantitative",
+                                "title": "Year",
+                                "axis": {"format": "d"},
+                                "scale": {"domain": [2003, 2016]}
+                            },
+                            "y": {
+                                "field": "deaths",
+                                "type": "quantitative",
+                                "title": "Deaths",
+                                "axis": {"format": ".4~s", "values": [6000, 6200, 6400, 6600, 6800, 7000, 7200]},
+                                "scale": {"domain": [5800, 7300]}
+                            },
+                            "tooltip": [
+                                {"field": "year", "title": "Year"},
+                                {"field": "deaths", "title": "Deaths", "format": ","}
+                            ]
+                        }
                             },
                             {
                                 "mark": {"type": "text", "align": "center", "dy": -10, "fontWeight": "bold", "fontSize": 11, "color": COLORS.mortar},
@@ -394,7 +459,7 @@ function renderMultiLine() {
 }
 
 // ============================================================================
-// CHART 4: CHOROPLETH MAP (Fixed: use red/orange scheme)
+// CHART 4: CHOROPLETH MAP 
 // ============================================================================
 function renderChoropleth(year) {
     const filteredData = stateData.filter(d => d.year === year);
@@ -405,51 +470,97 @@ function renderChoropleth(year) {
                  d.state_title
     }));
 
+    // Annotation metrics
+    const totalDeaths = filteredData.reduce((sum, d) => sum + d.deaths, 0);
+    const totalPop = filteredData.reduce((sum, d) => sum + d.population, 0);
+    const nationalRate = (totalDeaths / totalPop) * 100;
+    const highest = filteredData.reduce((a, b) => (a.death_rate > b.death_rate ? a : b));
+    const lowest = filteredData.reduce((a, b) => (a.death_rate < b.death_rate ? a : b));
+
     const spec = {
         "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
         "width": 900,
         "height": 550,
-        "data": {
-            "url": "js/geoBoundaries-MYS-ADM0.topojson",
-            "format": {"type": "topojson", "feature": "states"}
-        },
-        "transform": [
+        "layer": [
             {
-                "lookup": "properties.Name",
-                "from": {
-                    "data": {"values": mappedData},
-                    "key": "geo_name",
-                    "fields": ["deaths", "population", "death_rate", "state_title"]
-                }
-            }
-        ],
-        "mark": {"type": "geoshape", "stroke": "white", "strokeWidth": 1.5},
-        "encoding": {
-            "color": {
-                "field": "death_rate",
-                "type": "quantitative",
-                "scale": {
-                    "scheme": "orangered",
-                    "domain": [5, 35]
+                "data": {
+                    "url": "js/geoBoundaries-MYS-ADM0.topojson",
+                    "format": {"type": "topojson", "feature": "states"}
                 },
-                "legend": {
-                    "title": "Deaths per 100,000",
-                    "orient": "bottom-left",
-                    "gradientLength": 300
+                "transform": [
+                    {
+                        "lookup": "properties.Name",
+                        "from": {
+                            "data": {"values": mappedData},
+                            "key": "geo_name",
+                            "fields": ["deaths", "population", "death_rate", "state_title"]
+                        }
+                    }
+                ],
+                "mark": {"type": "geoshape", "stroke": "white", "strokeWidth": 1.5, "cursor": "pointer"},
+                "encoding": {
+                    "color": {
+                        "field": "death_rate",
+                        "type": "quantitative",
+                        "scale": {"scheme": "orangered", "domain": [5, 35]},
+                        "legend": {"title": "Deaths per 100,000", "orient": "bottom-left", "gradientLength": 300}
+                    },
+                    "opacity": {
+                        "condition": selectedState ? {"test": `datum.state_title == '${selectedState}'`, "value": 1} : {"test": "true", "value": 1},
+                        "value": 0.3
+                    },
+                    "tooltip": [
+                        {"field": "properties.Name", "type": "nominal", "title": "State"},
+                        {"datum": year, "title": "Year"},
+                        {"field": "deaths", "type": "quantitative", "title": "Total Deaths", "format": ","},
+                        {"field": "population", "type": "quantitative", "title": "Population (000s)", "format": ",.1f"},
+                        {"field": "death_rate", "type": "quantitative", "title": "Rate per 100,000", "format": ".1f"}
+                    ]
+                },
+                "projection": {"type": "mercator", "center": [108, 4], "scale": 2800}
+            },
+            {
+                // National rate chip
+                "data": {"values": [{"label": `National: ${nationalRate.toFixed(1)} per 100k`}]},
+                "mark": {"type": "text", "fontSize": 12, "fontWeight": "bold", "fill": COLORS.mortar, "align": "left"},
+                "encoding": {
+                    "x": {"value": 20},
+                    "y": {"value": 20},
+                    "text": {"field": "label"}
                 }
             },
-            "tooltip": [
-                {"field": "properties.Name", "type": "nominal", "title": "State"},
-                {"datum": year, "title": "Year"},
-                {"field": "deaths", "type": "quantitative", "title": "Total Deaths", "format": ","},
-                {"field": "population", "type": "quantitative", "title": "Population (000s)", "format": ",.1f"},
-                {"field": "death_rate", "type": "quantitative", "title": "Rate per 100,000", "format": ".1f"}
-            ]
-        },
-        "projection": {"type": "mercator", "center": [108, 4], "scale": 2800}
+            {
+                // Highest rate badge
+                "data": {"values": [{"label": `Highest rate: ${highest.state_title} (${highest.death_rate.toFixed(1)})`}]},
+                "mark": {"type": "text", "fontSize": 11, "fill": COLORS.mortar, "align": "left"},
+                "encoding": {
+                    "x": {"value": 20},
+                    "y": {"value": 40},
+                    "text": {"field": "label"}
+                }
+            },
+            {
+                // Lowest rate badge
+                "data": {"values": [{"label": `Lowest rate: ${lowest.state_title} (${lowest.death_rate.toFixed(1)})`}]},
+                "mark": {"type": "text", "fontSize": 11, "fill": COLORS.mortar, "align": "left"},
+                "encoding": {
+                    "x": {"value": 20},
+                    "y": {"value": 55},
+                    "text": {"field": "label"}
+                }
+            }
+        ]
     };
 
-    vegaEmbed('#chart4-choropleth', spec, {actions: false, tooltip: {theme: 'custom'}})
+    vegaEmbed('#chart4-choropleth', spec, {actions: false})
+        .then(result => {
+            chartViews.choropleth = result.view;
+            result.view.addEventListener('click', (event, item) => {
+                if (item && item.datum && item.datum.state_title) {
+                    toggleStateSelection(item.datum.state_title);
+                }
+            });
+        })
         .catch(err => console.error('Error rendering choropleth:', err));
 }
 
@@ -461,12 +572,16 @@ function renderGroupedBar(year, showAbsolute) {
     const field = showAbsolute ? "deaths" : "death_rate";
     const title = showAbsolute ? "Total Deaths" : "Deaths per 100,000";
 
-    const spec = {
-        "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-        "width": 450,
-        "height": 450,
-        "data": {"values": filteredData},
-        "mark": {"type": "bar"},
+    // National reference for rate mode
+    let nationalRate = null;
+    if (!showAbsolute) {
+        const totalDeaths = filteredData.reduce((sum, d) => sum + d.deaths, 0);
+        const totalPop = filteredData.reduce((sum, d) => sum + d.population, 0);
+        nationalRate = (totalDeaths / totalPop) * 100;
+    }
+
+    const baseLayer = {
+        "mark": {"type": "bar", "cursor": "pointer"},
         "encoding": {
             "y": {
                 "field": "state_title",
@@ -483,7 +598,17 @@ function renderGroupedBar(year, showAbsolute) {
                 "scale": {"domain": [0, showAbsolute ? 1200 : 35]}
             },
             "color": {
-                "value": COLORS.blue
+                "field": showAbsolute ? "deaths" : "death_rate",
+                "type": "quantitative",
+                "scale": {
+                    "scheme": "orangered",
+                    "domain": showAbsolute ? [0, 1200] : [5, 35]
+                },
+                "legend": null
+            },
+            "opacity": {
+                "condition": selectedState ? {"test": `datum.state_title == '${selectedState}'`, "value": 1} : {"test": "true", "value": 1},
+                "value": 0.3
             },
             "tooltip": [
                 {"field": "state_title", "title": "State"},
@@ -493,7 +618,38 @@ function renderGroupedBar(year, showAbsolute) {
         }
     };
 
-    vegaEmbed('#chart5-grouped-bar', spec, {actions: false, tooltip: {theme: 'custom'}})
+    const layers = [baseLayer];
+    if (nationalRate !== null) {
+        layers.push({
+            "mark": {"type": "rule", "color": COLORS.mortar, "strokeDash": [4,3], "strokeWidth": 2},
+            "encoding": {"x": {"datum": nationalRate}}
+        });
+        layers.push({
+            "mark": {"type": "text", "align": "left", "dx": 5, "dy": 220, "fontSize": 11, "fontWeight": "bold", "color": COLORS.mortar},
+            "encoding": {
+                "x": {"datum": nationalRate},
+                "text": {"datum": `National Avg: ${nationalRate.toFixed(1)}`}
+            }
+        });
+    }
+
+    const spec = {
+        "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+        "width": 450,
+        "height": 450,
+        "data": {"values": filteredData},
+        "layer": layers
+    };
+
+    vegaEmbed('#chart5-grouped-bar', spec, {actions: false})
+        .then(result => {
+            chartViews.groupedBar = result.view;
+            result.view.addEventListener('click', (event, item) => {
+                if (item && item.datum && item.datum.state_title) {
+                    toggleStateSelection(item.datum.state_title);
+                }
+            });
+        })
         .catch(err => console.error('Error rendering grouped bar:', err));
 }
 
@@ -524,10 +680,16 @@ function renderScatter() {
 
     const maxVal = Math.max(...mergedData.map(d => Math.max(d.deaths_a, d.deaths_b)));
 
+    // Find top 3 improvers (most negative change) and top 3 decliners (most positive change)
+    const sortedByChange = [...mergedData].sort((a, b) => a.pct_change - b.pct_change);
+    const topImprovers = sortedByChange.slice(0, 3);
+    const topDecliners = sortedByChange.slice(-3).reverse();
+    const extremeStates = [...topImprovers, ...topDecliners];
+
     const spec = {
         "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-        "width": 800,
-        "height": 600,
+        "width": 600,
+        "height": 500,
         "layer": [
             {
                 "data": {"values": [{x: 0, y: 0}, {x: maxVal, y: maxVal}]},
@@ -538,16 +700,8 @@ function renderScatter() {
                 }
             },
             {
-                "mark": {"type": "text", "align": "left", "baseline": "bottom", "dx": 5, "dy": -5, "fontSize": 10, "color": COLORS.darkGray, "fontStyle": "italic"},
-                "encoding": {
-                    "x": {"datum": maxVal * 0.7},
-                    "y": {"datum": maxVal * 0.7},
-                    "text": {"datum": "No change"}
-                }
-            },
-            {
                 "data": {"values": mergedData},
-                "mark": {"type": "circle", "size": 150, "opacity": 0.8},
+                "mark": {"type": "circle", "size": 150, "cursor": "pointer"},
                 "encoding": {
                     "x": {
                         "field": "deaths_a",
@@ -570,6 +724,10 @@ function renderScatter() {
                         },
                         "legend": {"title": "State", "labelLimit": 150, "columns": 2}
                     },
+                    "opacity": {
+                        "condition": selectedState ? {"test": `datum.state == '${selectedState}'`, "value": 0.8} : {"test": "true", "value": 0.8},
+                        "value": 0.2
+                    },
                     "tooltip": [
                         {"field": "state", "title": "State"},
                         {"field": "deaths_a", "title": `${yearA}`, "format": ","},
@@ -577,11 +735,72 @@ function renderScatter() {
                         {"field": "pct_change", "title": "Change", "format": "+.1f"}
                     ]
                 }
-            }
+            },
+            // Annotation box background
+            {
+                "data": {"values": [{}]},
+                "mark": {
+                    "type": "rect",
+                    "x": 10,
+                    "x2": 200,
+                    "y": 10,
+                    "y2": 155,
+                    "fill": "white",
+                    "stroke": COLORS.mortar,
+                    "strokeWidth": 1.5,
+                    "opacity": 0.95
+                }
+            },
+            // Box title - Top Improvers
+            {
+                "data": {"values": [{"text": "Top 3 Improvers (↓)"}]},
+                "mark": {"type": "text", "fontSize": 10, "fontWeight": "bold", "align": "left", "color": COLORS.mortar},
+                "encoding": {
+                    "x": {"value": 20},
+                    "y": {"value": 25},
+                    "text": {"field": "text"}
+                }
+            },
+            ...topImprovers.map((d, i) => ({
+                "data": {"values": [{"text": `${i+1}. ${d.state}: ${d.pct_change.toFixed(1)}%`}]},
+                "mark": {"type": "text", "fontSize": 9, "align": "left", "color": COLORS.mortar, "fontWeight": "bold"},
+                "encoding": {
+                    "x": {"value": 25},
+                    "y": {"value": 40 + i * 12},
+                    "text": {"field": "text"}
+                }
+            })),
+            // Box title - Top Decliners
+            {
+                "data": {"values": [{"text": "Top 3 Decliners (↑)"}]},
+                "mark": {"type": "text", "fontSize": 10, "fontWeight": "bold", "align": "left", "color": COLORS.mortar},
+                "encoding": {
+                    "x": {"value": 20},
+                    "y": {"value": 85},
+                    "text": {"field": "text"}
+                }
+            },
+            ...topDecliners.map((d, i) => ({
+                "data": {"values": [{"text": `${i+1}. ${d.state}: +${d.pct_change.toFixed(1)}%`}]},
+                "mark": {"type": "text", "fontSize": 9, "align": "left", "color": COLORS.mortar, "fontWeight": "bold"},
+                "encoding": {
+                    "x": {"value": 25},
+                    "y": {"value": 100 + i * 12},
+                    "text": {"field": "text"}
+                }
+            }))
         ]
     };
 
-    vegaEmbed('#chart6-scatter', spec, {actions: false, tooltip: {theme: 'custom'}})
+    vegaEmbed('#chart6-scatter', spec, {actions: false})
+        .then(result => {
+            chartViews.scatter = result.view;
+            result.view.addEventListener('click', (event, item) => {
+                if (item && item.datum && item.datum.state) {
+                    toggleStateSelection(item.datum.state);
+                }
+            });
+        })
         .catch(err => console.error('Error rendering scatter:', err));
 }
 
@@ -601,7 +820,7 @@ function renderTrellis() {
         "spec": {
             "width": 180,
             "height": 110,
-            "mark": {"type": "line", "point": true, "strokeWidth": 1.5},
+            "mark": {"type": "line", "point": true, "strokeWidth": 1.5, "cursor": "pointer"},
             "encoding": {
                 "x": {
                     "field": "year",
@@ -624,6 +843,10 @@ function renderTrellis() {
                     },
                     "legend": null
                 },
+                "opacity": {
+                    "condition": selectedState ? {"test": `datum.state_title == '${selectedState}'`, "value": 1} : {"test": "true", "value": 1},
+                    "value": 0.3
+                },
                 "tooltip": [
                     {"field": "state_title", "title": "State"},
                     {"field": "year", "title": "Year"},
@@ -634,7 +857,15 @@ function renderTrellis() {
         "resolve": {"scale": {"y": "shared"}}
     };
 
-    vegaEmbed('#chart7-trellis', spec, {actions: false, tooltip: {theme: 'custom'}})
+    vegaEmbed('#chart7-trellis', spec, {actions: false})
+        .then(result => {
+            chartViews.trellis = result.view;
+            result.view.addEventListener('click', (event, item) => {
+                if (item && item.datum && item.datum.state_title) {
+                    toggleStateSelection(item.datum.state_title);
+                }
+            });
+        })
         .catch(err => console.error('Error rendering trellis:', err));
 }
 
@@ -673,7 +904,7 @@ function renderDeviationBar(year) {
             },
             // Deviation bars
             {
-                "mark": {"type": "bar", "size": 18},
+                "mark": {"type": "bar", "size": 18, "cursor": "pointer"},
                 "encoding": {
                     "y": {
                         "field": "state",
@@ -695,6 +926,10 @@ function renderDeviationBar(year) {
                         },
                         "value": COLORS.picton
                     },
+                    "opacity": {
+                        "condition": selectedState ? {"test": `datum.state == '${selectedState}'`, "value": 1} : {"test": "true", "value": 1},
+                        "value": 0.3
+                    },
                     "tooltip": [
                         {"field": "state", "title": "State"},
                         {"field": "death_rate", "title": "State Rate", "format": ".1f"},
@@ -702,11 +937,39 @@ function renderDeviationBar(year) {
                         {"field": "deviation", "title": "Deviation", "format": "+.1f"}
                     ]
                 }
+            },
+            // Annotation: Above average
+            {
+                "data": {"values": [{"label": "Above National Avg"}]},
+                "mark": {"type": "text", "fontSize": 11, "fontWeight": "bold", "color": COLORS.tenne, "align": "right"},
+                "encoding": {
+                    "x": {"value": 410},
+                    "y": {"value": 430},
+                    "text": {"field": "label"}
+                }
+            },
+            // Annotation: Below average
+            {
+                "data": {"values": [{"label": "Below National Avg"}]},
+                "mark": {"type": "text", "fontSize": 11, "fontWeight": "bold", "color": COLORS.picton, "align": "left"},
+                "encoding": {
+                    "x": {"value": 40},
+                    "y": {"value": 20},
+                    "text": {"field": "label"}
+                }
             }
         ]
     };
 
-    vegaEmbed('#chart8-deviation-bar', spec, {actions: false, tooltip: {theme: 'custom'}})
+    vegaEmbed('#chart8-deviation-bar', spec, {actions: false})
+        .then(result => {
+            chartViews.deviationBar = result.view;
+            result.view.addEventListener('click', (event, item) => {
+                if (item && item.datum && item.datum.state) {
+                    toggleStateSelection(item.datum.state);
+                }
+            });
+        })
         .catch(err => console.error('Error rendering deviation bar:', err));
 }
 
