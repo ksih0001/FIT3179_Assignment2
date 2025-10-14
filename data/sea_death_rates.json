@@ -1,57 +1,852 @@
 [
-  {"country": "Thailand", "year": 2019, "rate": 32.2},
-  {"country": "Thailand", "year": 2018, "rate": 32.7},
-  {"country": "Thailand", "year": 2017, "rate": 32.8},
-  {"country": "Thailand", "year": 2016, "rate": 36.2},
-  {"country": "Thailand", "year": 2015, "rate": 36.2},
-  {"country": "Vietnam", "year": 2019, "rate": 30.6},
-  {"country": "Vietnam", "year": 2018, "rate": 29.1},
-  {"country": "Vietnam", "year": 2017, "rate": 27.8},
-  {"country": "Vietnam", "year": 2016, "rate": 26.3},
-  {"country": "Vietnam", "year": 2015, "rate": 24.7},
-  {"country": "Myanmar", "year": 2019, "rate": 20.3},
-  {"country": "Myanmar", "year": 2018, "rate": 20.1},
-  {"country": "Myanmar", "year": 2017, "rate": 19.9},
-  {"country": "Myanmar", "year": 2016, "rate": 20.5},
-  {"country": "Myanmar", "year": 2015, "rate": 20.8},
-  {"country": "Cambodia", "year": 2019, "rate": 17.8},
-  {"country": "Cambodia", "year": 2018, "rate": 18.2},
-  {"country": "Cambodia", "year": 2017, "rate": 18.5},
-  {"country": "Cambodia", "year": 2016, "rate": 19.0},
-  {"country": "Cambodia", "year": 2015, "rate": 19.5},
-  {"country": "Laos", "year": 2019, "rate": 16.2},
-  {"country": "Laos", "year": 2018, "rate": 16.8},
-  {"country": "Laos", "year": 2017, "rate": 17.1},
-  {"country": "Laos", "year": 2016, "rate": 17.5},
-  {"country": "Laos", "year": 2015, "rate": 18.0},
-  {"country": "Malaysia", "year": 2019, "rate": 22.5},
-  {"country": "Malaysia", "year": 2018, "rate": 23.0},
-  {"country": "Malaysia", "year": 2017, "rate": 22.9},
-  {"country": "Malaysia", "year": 2016, "rate": 23.6},
-  {"country": "Malaysia", "year": 2015, "rate": 23.9},
-  {"country": "Philippines", "year": 2019, "rate": 12.0},
-  {"country": "Philippines", "year": 2018, "rate": 11.6},
-  {"country": "Philippines", "year": 2017, "rate": 11.3},
-  {"country": "Philippines", "year": 2016, "rate": 10.9},
-  {"country": "Philippines", "year": 2015, "rate": 10.5},
-  {"country": "Indonesia", "year": 2019, "rate": 11.3},
-  {"country": "Indonesia", "year": 2018, "rate": 11.0},
-  {"country": "Indonesia", "year": 2017, "rate": 10.7},
-  {"country": "Indonesia", "year": 2016, "rate": 10.9},
-  {"country": "Indonesia", "year": 2015, "rate": 10.8},
-  {"country": "Brunei", "year": 2019, "rate": 4.8},
-  {"country": "Brunei", "year": 2018, "rate": 5.1},
-  {"country": "Brunei", "year": 2017, "rate": 5.3},
-  {"country": "Brunei", "year": 2016, "rate": 5.6},
-  {"country": "Brunei", "year": 2015, "rate": 5.9},
-  {"country": "Singapore", "year": 2019, "rate": 2.1},
-  {"country": "Singapore", "year": 2018, "rate": 2.4},
-  {"country": "Singapore", "year": 2017, "rate": 2.7},
-  {"country": "Singapore", "year": 2016, "rate": 3.0},
-  {"country": "Singapore", "year": 2015, "rate": 3.6},
-  {"country": "Timor-Leste", "year": 2019, "rate": 7.2},
-  {"country": "Timor-Leste", "year": 2018, "rate": 7.5},
-  {"country": "Timor-Leste", "year": 2017, "rate": 7.8},
-  {"country": "Timor-Leste", "year": 2016, "rate": 8.0},
-  {"country": "Timor-Leste", "year": 2015, "rate": 8.3}
+  {
+    "country": "Brunei Darussalam",
+    "year": 2003,
+    "rate": 8.8
+  },
+  {
+    "country": "Cambodia",
+    "year": 2003,
+    "rate": 17.6
+  },
+  {
+    "country": "Indonesia",
+    "year": 2003,
+    "rate": 14.5
+  },
+  {
+    "country": "Lao People's Democratic Republic",
+    "year": 2003,
+    "rate": 13.7
+  },
+  {
+    "country": "Malaysia",
+    "year": 2003,
+    "rate": 26.2
+  },
+  {
+    "country": "Myanmar",
+    "year": 2003,
+    "rate": 20.1
+  },
+  {
+    "country": "Philippines",
+    "year": 2003,
+    "rate": 10.2
+  },
+  {
+    "country": "Singapore",
+    "year": 2003,
+    "rate": 7.0
+  },
+  {
+    "country": "Thailand",
+    "year": 2003,
+    "rate": 38.8
+  },
+  {
+    "country": "Viet Nam",
+    "year": 2003,
+    "rate": 24.2
+  },
+  {
+    "country": "Brunei Darussalam",
+    "year": 2004,
+    "rate": 12.5
+  },
+  {
+    "country": "Cambodia",
+    "year": 2004,
+    "rate": 17.6
+  },
+  {
+    "country": "Indonesia",
+    "year": 2004,
+    "rate": 14.4
+  },
+  {
+    "country": "Lao People's Democratic Republic",
+    "year": 2004,
+    "rate": 13.9
+  },
+  {
+    "country": "Malaysia",
+    "year": 2004,
+    "rate": 25.5
+  },
+  {
+    "country": "Myanmar",
+    "year": 2004,
+    "rate": 19.7
+  },
+  {
+    "country": "Philippines",
+    "year": 2004,
+    "rate": 10.1
+  },
+  {
+    "country": "Singapore",
+    "year": 2004,
+    "rate": 6.3
+  },
+  {
+    "country": "Thailand",
+    "year": 2004,
+    "rate": 38.9
+  },
+  {
+    "country": "Viet Nam",
+    "year": 2004,
+    "rate": 24.9
+  },
+  {
+    "country": "Brunei Darussalam",
+    "year": 2005,
+    "rate": 14.4
+  },
+  {
+    "country": "Cambodia",
+    "year": 2005,
+    "rate": 17.9
+  },
+  {
+    "country": "Indonesia",
+    "year": 2005,
+    "rate": 14.3
+  },
+  {
+    "country": "Lao People's Democratic Republic",
+    "year": 2005,
+    "rate": 14.0
+  },
+  {
+    "country": "Malaysia",
+    "year": 2005,
+    "rate": 24.9
+  },
+  {
+    "country": "Myanmar",
+    "year": 2005,
+    "rate": 19.3
+  },
+  {
+    "country": "Philippines",
+    "year": 2005,
+    "rate": 10.1
+  },
+  {
+    "country": "Singapore",
+    "year": 2005,
+    "rate": 5.0
+  },
+  {
+    "country": "Thailand",
+    "year": 2005,
+    "rate": 38.9
+  },
+  {
+    "country": "Viet Nam",
+    "year": 2005,
+    "rate": 24.7
+  },
+  {
+    "country": "Brunei Darussalam",
+    "year": 2006,
+    "rate": 12.7
+  },
+  {
+    "country": "Cambodia",
+    "year": 2006,
+    "rate": 17.9
+  },
+  {
+    "country": "Indonesia",
+    "year": 2006,
+    "rate": 14.2
+  },
+  {
+    "country": "Lao People's Democratic Republic",
+    "year": 2006,
+    "rate": 13.9
+  },
+  {
+    "country": "Malaysia",
+    "year": 2006,
+    "rate": 24.7
+  },
+  {
+    "country": "Myanmar",
+    "year": 2006,
+    "rate": 19.0
+  },
+  {
+    "country": "Philippines",
+    "year": 2006,
+    "rate": 9.8
+  },
+  {
+    "country": "Singapore",
+    "year": 2006,
+    "rate": 5.3
+  },
+  {
+    "country": "Thailand",
+    "year": 2006,
+    "rate": 38.7
+  },
+  {
+    "country": "Viet Nam",
+    "year": 2006,
+    "rate": 24.5
+  },
+  {
+    "country": "Brunei Darussalam",
+    "year": 2007,
+    "rate": 17.6
+  },
+  {
+    "country": "Cambodia",
+    "year": 2007,
+    "rate": 17.4
+  },
+  {
+    "country": "Indonesia",
+    "year": 2007,
+    "rate": 13.7
+  },
+  {
+    "country": "Lao People's Democratic Republic",
+    "year": 2007,
+    "rate": 14.2
+  },
+  {
+    "country": "Malaysia",
+    "year": 2007,
+    "rate": 24.2
+  },
+  {
+    "country": "Myanmar",
+    "year": 2007,
+    "rate": 19.0
+  },
+  {
+    "country": "Philippines",
+    "year": 2007,
+    "rate": 10.6
+  },
+  {
+    "country": "Singapore",
+    "year": 2007,
+    "rate": 6.0
+  },
+  {
+    "country": "Thailand",
+    "year": 2007,
+    "rate": 38.9
+  },
+  {
+    "country": "Viet Nam",
+    "year": 2007,
+    "rate": 24.3
+  },
+  {
+    "country": "Brunei Darussalam",
+    "year": 2008,
+    "rate": 10.5
+  },
+  {
+    "country": "Cambodia",
+    "year": 2008,
+    "rate": 17.7
+  },
+  {
+    "country": "Indonesia",
+    "year": 2008,
+    "rate": 13.6
+  },
+  {
+    "country": "Lao People's Democratic Republic",
+    "year": 2008,
+    "rate": 14.1
+  },
+  {
+    "country": "Malaysia",
+    "year": 2008,
+    "rate": 24.7
+  },
+  {
+    "country": "Myanmar",
+    "year": 2008,
+    "rate": 19.2
+  },
+  {
+    "country": "Philippines",
+    "year": 2008,
+    "rate": 10.0
+  },
+  {
+    "country": "Singapore",
+    "year": 2008,
+    "rate": 5.8
+  },
+  {
+    "country": "Thailand",
+    "year": 2008,
+    "rate": 38.9
+  },
+  {
+    "country": "Viet Nam",
+    "year": 2008,
+    "rate": 24.8
+  },
+  {
+    "country": "Brunei Darussalam",
+    "year": 2009,
+    "rate": 11.5
+  },
+  {
+    "country": "Cambodia",
+    "year": 2009,
+    "rate": 17.9
+  },
+  {
+    "country": "Indonesia",
+    "year": 2009,
+    "rate": 13.9
+  },
+  {
+    "country": "Lao People's Democratic Republic",
+    "year": 2009,
+    "rate": 14.2
+  },
+  {
+    "country": "Malaysia",
+    "year": 2009,
+    "rate": 25.1
+  },
+  {
+    "country": "Myanmar",
+    "year": 2009,
+    "rate": 19.1
+  },
+  {
+    "country": "Philippines",
+    "year": 2009,
+    "rate": 10.6
+  },
+  {
+    "country": "Singapore",
+    "year": 2009,
+    "rate": 4.4
+  },
+  {
+    "country": "Thailand",
+    "year": 2009,
+    "rate": 38.7
+  },
+  {
+    "country": "Viet Nam",
+    "year": 2009,
+    "rate": 24.6
+  },
+  {
+    "country": "Brunei Darussalam",
+    "year": 2010,
+    "rate": 7.7
+  },
+  {
+    "country": "Cambodia",
+    "year": 2010,
+    "rate": 18.1
+  },
+  {
+    "country": "Indonesia",
+    "year": 2010,
+    "rate": 13.7
+  },
+  {
+    "country": "Lao People's Democratic Republic",
+    "year": 2010,
+    "rate": 14.3
+  },
+  {
+    "country": "Malaysia",
+    "year": 2010,
+    "rate": 25.1
+  },
+  {
+    "country": "Myanmar",
+    "year": 2010,
+    "rate": 19.1
+  },
+  {
+    "country": "Philippines",
+    "year": 2010,
+    "rate": 11.5
+  },
+  {
+    "country": "Singapore",
+    "year": 2010,
+    "rate": 5.1
+  },
+  {
+    "country": "Thailand",
+    "year": 2010,
+    "rate": 38.3
+  },
+  {
+    "country": "Viet Nam",
+    "year": 2010,
+    "rate": 25.6
+  },
+  {
+    "country": "Brunei Darussalam",
+    "year": 2011,
+    "rate": 12.2
+  },
+  {
+    "country": "Cambodia",
+    "year": 2011,
+    "rate": 18.0
+  },
+  {
+    "country": "Indonesia",
+    "year": 2011,
+    "rate": 13.8
+  },
+  {
+    "country": "Lao People's Democratic Republic",
+    "year": 2011,
+    "rate": 14.0
+  },
+  {
+    "country": "Malaysia",
+    "year": 2011,
+    "rate": 24.8
+  },
+  {
+    "country": "Myanmar",
+    "year": 2011,
+    "rate": 19.0
+  },
+  {
+    "country": "Philippines",
+    "year": 2011,
+    "rate": 10.5
+  },
+  {
+    "country": "Singapore",
+    "year": 2011,
+    "rate": 4.6
+  },
+  {
+    "country": "Thailand",
+    "year": 2011,
+    "rate": 38.2
+  },
+  {
+    "country": "Viet Nam",
+    "year": 2011,
+    "rate": 25.3
+  },
+  {
+    "country": "Brunei Darussalam",
+    "year": 2012,
+    "rate": 9.0
+  },
+  {
+    "country": "Cambodia",
+    "year": 2012,
+    "rate": 17.1
+  },
+  {
+    "country": "Indonesia",
+    "year": 2012,
+    "rate": 13.1
+  },
+  {
+    "country": "Lao People's Democratic Republic",
+    "year": 2012,
+    "rate": 14.2
+  },
+  {
+    "country": "Malaysia",
+    "year": 2012,
+    "rate": 24.5
+  },
+  {
+    "country": "Myanmar",
+    "year": 2012,
+    "rate": 19.5
+  },
+  {
+    "country": "Philippines",
+    "year": 2012,
+    "rate": 10.8
+  },
+  {
+    "country": "Singapore",
+    "year": 2012,
+    "rate": 3.5
+  },
+  {
+    "country": "Thailand",
+    "year": 2012,
+    "rate": 36.3
+  },
+  {
+    "country": "Viet Nam",
+    "year": 2012,
+    "rate": 25.4
+  },
+  {
+    "country": "Brunei Darussalam",
+    "year": 2013,
+    "rate": 9.6
+  },
+  {
+    "country": "Cambodia",
+    "year": 2013,
+    "rate": 17.1
+  },
+  {
+    "country": "Indonesia",
+    "year": 2013,
+    "rate": 12.9
+  },
+  {
+    "country": "Lao People's Democratic Republic",
+    "year": 2013,
+    "rate": 14.3
+  },
+  {
+    "country": "Malaysia",
+    "year": 2013,
+    "rate": 24.2
+  },
+  {
+    "country": "Myanmar",
+    "year": 2013,
+    "rate": 19.5
+  },
+  {
+    "country": "Philippines",
+    "year": 2013,
+    "rate": 10.6
+  },
+  {
+    "country": "Singapore",
+    "year": 2013,
+    "rate": 3.2
+  },
+  {
+    "country": "Thailand",
+    "year": 2013,
+    "rate": 36.0
+  },
+  {
+    "country": "Viet Nam",
+    "year": 2013,
+    "rate": 25.0
+  },
+  {
+    "country": "Brunei Darussalam",
+    "year": 2014,
+    "rate": 8.5
+  },
+  {
+    "country": "Cambodia",
+    "year": 2014,
+    "rate": 17.4
+  },
+  {
+    "country": "Indonesia",
+    "year": 2014,
+    "rate": 12.7
+  },
+  {
+    "country": "Lao People's Democratic Republic",
+    "year": 2014,
+    "rate": 16.4
+  },
+  {
+    "country": "Malaysia",
+    "year": 2014,
+    "rate": 23.0
+  },
+  {
+    "country": "Myanmar",
+    "year": 2014,
+    "rate": 19.6
+  },
+  {
+    "country": "Philippines",
+    "year": 2014,
+    "rate": 10.9
+  },
+  {
+    "country": "Singapore",
+    "year": 2014,
+    "rate": 3.2
+  },
+  {
+    "country": "Thailand",
+    "year": 2014,
+    "rate": 32.6
+  },
+  {
+    "country": "Viet Nam",
+    "year": 2014,
+    "rate": 24.7
+  },
+  {
+    "country": "Brunei Darussalam",
+    "year": 2015,
+    "rate": 8.9
+  },
+  {
+    "country": "Cambodia",
+    "year": 2015,
+    "rate": 17.4
+  },
+  {
+    "country": "Indonesia",
+    "year": 2015,
+    "rate": 12.3
+  },
+  {
+    "country": "Lao People's Democratic Republic",
+    "year": 2015,
+    "rate": 15.2
+  },
+  {
+    "country": "Malaysia",
+    "year": 2015,
+    "rate": 22.8
+  },
+  {
+    "country": "Myanmar",
+    "year": 2015,
+    "rate": 19.7
+  },
+  {
+    "country": "Philippines",
+    "year": 2015,
+    "rate": 12.5
+  },
+  {
+    "country": "Singapore",
+    "year": 2015,
+    "rate": 3.0
+  },
+  {
+    "country": "Thailand",
+    "year": 2015,
+    "rate": 32.8
+  },
+  {
+    "country": "Viet Nam",
+    "year": 2015,
+    "rate": 25.5
+  },
+  {
+    "country": "Brunei Darussalam",
+    "year": 2016,
+    "rate": 9.1
+  },
+  {
+    "country": "Cambodia",
+    "year": 2016,
+    "rate": 17.8
+  },
+  {
+    "country": "Indonesia",
+    "year": 2016,
+    "rate": 12.2
+  },
+  {
+    "country": "Lao People's Democratic Republic",
+    "year": 2016,
+    "rate": 16.4
+  },
+  {
+    "country": "Malaysia",
+    "year": 2016,
+    "rate": 24.0
+  },
+  {
+    "country": "Myanmar",
+    "year": 2016,
+    "rate": 19.9
+  },
+  {
+    "country": "Philippines",
+    "year": 2016,
+    "rate": 12.2
+  },
+  {
+    "country": "Singapore",
+    "year": 2016,
+    "rate": 2.7
+  },
+  {
+    "country": "Thailand",
+    "year": 2016,
+    "rate": 32.6
+  },
+  {
+    "country": "Viet Nam",
+    "year": 2016,
+    "rate": 26.7
+  },
+  {
+    "country": "Brunei Darussalam",
+    "year": 2017,
+    "rate": 8.1
+  },
+  {
+    "country": "Cambodia",
+    "year": 2017,
+    "rate": 18.4
+  },
+  {
+    "country": "Indonesia",
+    "year": 2017,
+    "rate": 11.8
+  },
+  {
+    "country": "Lao People's Democratic Republic",
+    "year": 2017,
+    "rate": 16.8
+  },
+  {
+    "country": "Malaysia",
+    "year": 2017,
+    "rate": 22.9
+  },
+  {
+    "country": "Myanmar",
+    "year": 2017,
+    "rate": 20.0
+  },
+  {
+    "country": "Philippines",
+    "year": 2017,
+    "rate": 11.8
+  },
+  {
+    "country": "Singapore",
+    "year": 2017,
+    "rate": 2.5
+  },
+  {
+    "country": "Thailand",
+    "year": 2017,
+    "rate": 35.1
+  },
+  {
+    "country": "Viet Nam",
+    "year": 2017,
+    "rate": 27.8
+  },
+  {
+    "country": "Brunei Darussalam",
+    "year": 2018,
+    "rate": 7.8
+  },
+  {
+    "country": "Cambodia",
+    "year": 2018,
+    "rate": 19.0
+  },
+  {
+    "country": "Indonesia",
+    "year": 2018,
+    "rate": 11.6
+  },
+  {
+    "country": "Lao People's Democratic Republic",
+    "year": 2018,
+    "rate": 17.3
+  },
+  {
+    "country": "Malaysia",
+    "year": 2018,
+    "rate": 22.7
+  },
+  {
+    "country": "Myanmar",
+    "year": 2018,
+    "rate": 20.2
+  },
+  {
+    "country": "Philippines",
+    "year": 2018,
+    "rate": 11.9
+  },
+  {
+    "country": "Singapore",
+    "year": 2018,
+    "rate": 2.3
+  },
+  {
+    "country": "Thailand",
+    "year": 2018,
+    "rate": 32.4
+  },
+  {
+    "country": "Viet Nam",
+    "year": 2018,
+    "rate": 29.2
+  },
+  {
+    "country": "Brunei Darussalam",
+    "year": 2019,
+    "rate": 7.5
+  },
+  {
+    "country": "Cambodia",
+    "year": 2019,
+    "rate": 19.6
+  },
+  {
+    "country": "Indonesia",
+    "year": 2019,
+    "rate": 11.3
+  },
+  {
+    "country": "Lao People's Democratic Republic",
+    "year": 2019,
+    "rate": 17.9
+  },
+  {
+    "country": "Malaysia",
+    "year": 2019,
+    "rate": 22.5
+  },
+  {
+    "country": "Myanmar",
+    "year": 2019,
+    "rate": 20.4
+  },
+  {
+    "country": "Philippines",
+    "year": 2019,
+    "rate": 12.0
+  },
+  {
+    "country": "Singapore",
+    "year": 2019,
+    "rate": 2.1
+  },
+  {
+    "country": "Thailand",
+    "year": 2019,
+    "rate": 32.2
+  },
+  {
+    "country": "Viet Nam",
+    "year": 2019,
+    "rate": 30.6
+  }
 ]

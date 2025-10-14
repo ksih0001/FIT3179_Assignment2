@@ -1,6 +1,5 @@
 [
   {
-    "state_upper": "JOHOR",
     "state_title": "Johor",
     "year": 2003,
     "deaths": 983,
@@ -8,7 +7,6 @@
     "death_rate": 33.28
   },
   {
-    "state_upper": "KEDAH",
     "state_title": "Kedah",
     "year": 2003,
     "deaths": 534,
@@ -16,7 +14,6 @@
     "death_rate": 30.28
   },
   {
-    "state_upper": "KELANTAN",
     "state_title": "Kelantan",
     "year": 2003,
     "deaths": 314,
@@ -24,7 +21,6 @@
     "death_rate": 21.8
   },
   {
-    "state_upper": "MELAKA",
     "state_title": "Melaka",
     "year": 2003,
     "deaths": 228,
@@ -32,7 +28,6 @@
     "death_rate": 32.49
   },
   {
-    "state_upper": "NEGERI SEMBILAN",
     "state_title": "Negeri Sembilan",
     "year": 2003,
     "deaths": 337,
@@ -40,7 +35,6 @@
     "death_rate": 36.76
   },
   {
-    "state_upper": "PAHANG",
     "state_title": "Pahang",
     "year": 2003,
     "deaths": 438,
@@ -48,7 +42,6 @@
     "death_rate": 32.21
   },
   {
-    "state_upper": "PERAK",
     "state_title": "Perak",
     "year": 2003,
     "deaths": 739,
@@ -56,7 +49,6 @@
     "death_rate": 33.71
   },
   {
-    "state_upper": "PERLIS",
     "state_title": "Perlis",
     "year": 2003,
     "deaths": 54,
@@ -64,7 +56,6 @@
     "death_rate": 25.0
   },
   {
-    "state_upper": "PULAU PINANG",
     "state_title": "Pulau Pinang",
     "year": 2003,
     "deaths": 389,
@@ -72,7 +63,6 @@
     "death_rate": 27.55
   },
   {
-    "state_upper": "SABAH",
     "state_title": "Sabah",
     "year": 2003,
     "deaths": 310,
@@ -80,7 +70,6 @@
     "death_rate": 11.18
   },
   {
-    "state_upper": "SARAWAK",
     "state_title": "Sarawak",
     "year": 2003,
     "deaths": 290,
@@ -88,7 +77,6 @@
     "death_rate": 13.19
   },
   {
-    "state_upper": "SELANGOR",
     "state_title": "Selangor",
     "year": 2003,
     "deaths": 1083,
@@ -96,7 +84,6 @@
     "death_rate": 23.66
   },
   {
-    "state_upper": "TERENGGANU",
     "state_title": "Terengganu",
     "year": 2003,
     "deaths": 311,
@@ -104,15 +91,6 @@
     "death_rate": 32.69
   },
   {
-    "state_upper": "WILAYAH PERSEKUTUAN",
-    "state_title": "W.P. Kuala Lumpur",
-    "year": 2003,
-    "deaths": 273,
-    "population": 1500.5,
-    "death_rate": 18.19
-  },
-  {
-    "state_upper": "JOHOR",
     "state_title": "Johor",
     "year": 2004,
     "deaths": 1014,
@@ -120,7 +98,6 @@
     "death_rate": 33.64
   },
   {
-    "state_upper": "KEDAH",
     "state_title": "Kedah",
     "year": 2004,
     "deaths": 474,
@@ -128,7 +105,6 @@
     "death_rate": 26.44
   },
   {
-    "state_upper": "KELANTAN",
     "state_title": "Kelantan",
     "year": 2004,
     "deaths": 279,
@@ -136,7 +112,6 @@
     "death_rate": 19.06
   },
   {
-    "state_upper": "MELAKA",
     "state_title": "Melaka",
     "year": 2004,
     "deaths": 259,
@@ -144,7 +119,6 @@
     "death_rate": 35.98
   },
   {
-    "state_upper": "NEGERI SEMBILAN",
     "state_title": "Negeri Sembilan",
     "year": 2004,
     "deaths": 323,
@@ -152,7 +126,6 @@
     "death_rate": 34.59
   },
   {
-    "state_upper": "PAHANG",
     "state_title": "Pahang",
     "year": 2004,
     "deaths": 445,
@@ -160,7 +133,6 @@
     "death_rate": 32.24
   },
   {
-    "state_upper": "PERAK",
     "state_title": "Perak",
     "year": 2004,
     "deaths": 798,
@@ -168,7 +140,6 @@
     "death_rate": 35.91
   },
   {
-    "state_upper": "PERLIS",
     "state_title": "Perlis",
     "year": 2004,
     "deaths": 34,
@@ -176,7 +147,6 @@
     "death_rate": 15.54
   },
   {
-    "state_upper": "PULAU PINANG",
     "state_title": "Pulau Pinang",
     "year": 2004,
     "deaths": 403,
@@ -184,7 +154,6 @@
     "death_rate": 28.05
   },
   {
-    "state_upper": "SABAH",
     "state_title": "Sabah",
     "year": 2004,
     "deaths": 300,
@@ -192,7 +161,6 @@
     "death_rate": 10.59
   },
   {
-    "state_upper": "SARAWAK",
     "state_title": "Sarawak",
     "year": 2004,
     "deaths": 294,
@@ -200,7 +168,6 @@
     "death_rate": 13.12
   },
   {
-    "state_upper": "SELANGOR",
     "state_title": "Selangor",
     "year": 2004,
     "deaths": 1050,
@@ -208,7 +175,6 @@
     "death_rate": 22.28
   },
   {
-    "state_upper": "TERENGGANU",
     "state_title": "Terengganu",
     "year": 2004,
     "deaths": 301,
@@ -216,15 +182,6 @@
     "death_rate": 31.14
   },
   {
-    "state_upper": "WILAYAH PERSEKUTUAN",
-    "state_title": "W.P. Kuala Lumpur",
-    "year": 2004,
-    "deaths": 249,
-    "population": 1526.4,
-    "death_rate": 16.31
-  },
-  {
-    "state_upper": "JOHOR",
     "state_title": "Johor",
     "year": 2005,
     "deaths": 1022,
@@ -232,7 +189,6 @@
     "death_rate": 33.24
   },
   {
-    "state_upper": "KEDAH",
     "state_title": "Kedah",
     "year": 2005,
     "deaths": 482,
@@ -240,7 +196,6 @@
     "death_rate": 26.48
   },
   {
-    "state_upper": "KELANTAN",
     "state_title": "Kelantan",
     "year": 2005,
     "deaths": 292,
@@ -248,7 +203,6 @@
     "death_rate": 19.65
   },
   {
-    "state_upper": "MELAKA",
     "state_title": "Melaka",
     "year": 2005,
     "deaths": 227,
@@ -256,7 +210,6 @@
     "death_rate": 30.79
   },
   {
-    "state_upper": "NEGERI SEMBILAN",
     "state_title": "Negeri Sembilan",
     "year": 2005,
     "deaths": 351,
@@ -264,7 +217,6 @@
     "death_rate": 36.94
   },
   {
-    "state_upper": "PAHANG",
     "state_title": "Pahang",
     "year": 2005,
     "deaths": 448,
@@ -272,7 +224,6 @@
     "death_rate": 31.98
   },
   {
-    "state_upper": "PERAK",
     "state_title": "Perak",
     "year": 2005,
     "deaths": 713,
@@ -280,7 +231,6 @@
     "death_rate": 31.67
   },
   {
-    "state_upper": "PERLIS",
     "state_title": "Perlis",
     "year": 2005,
     "deaths": 63,
@@ -288,7 +238,6 @@
     "death_rate": 28.43
   },
   {
-    "state_upper": "PULAU PINANG",
     "state_title": "Pulau Pinang",
     "year": 2005,
     "deaths": 371,
@@ -296,7 +245,6 @@
     "death_rate": 25.4
   },
   {
-    "state_upper": "SABAH",
     "state_title": "Sabah",
     "year": 2005,
     "deaths": 319,
@@ -304,7 +252,6 @@
     "death_rate": 11.01
   },
   {
-    "state_upper": "SARAWAK",
     "state_title": "Sarawak",
     "year": 2005,
     "deaths": 346,
@@ -312,7 +259,6 @@
     "death_rate": 15.16
   },
   {
-    "state_upper": "SELANGOR",
     "state_title": "Selangor",
     "year": 2005,
     "deaths": 1064,
@@ -320,7 +266,6 @@
     "death_rate": 21.94
   },
   {
-    "state_upper": "TERENGGANU",
     "state_title": "Terengganu",
     "year": 2005,
     "deaths": 271,
@@ -328,15 +273,6 @@
     "death_rate": 27.61
   },
   {
-    "state_upper": "WILAYAH PERSEKUTUAN",
-    "state_title": "W.P. Kuala Lumpur",
-    "year": 2005,
-    "deaths": 231,
-    "population": 1551.8,
-    "death_rate": 14.89
-  },
-  {
-    "state_upper": "JOHOR",
     "state_title": "Johor",
     "year": 2006,
     "deaths": 1017,
@@ -344,7 +280,6 @@
     "death_rate": 32.45
   },
   {
-    "state_upper": "KEDAH",
     "state_title": "Kedah",
     "year": 2006,
     "deaths": 494,
@@ -352,7 +287,6 @@
     "death_rate": 26.74
   },
   {
-    "state_upper": "KELANTAN",
     "state_title": "Kelantan",
     "year": 2006,
     "deaths": 331,
@@ -360,7 +294,6 @@
     "death_rate": 21.96
   },
   {
-    "state_upper": "MELAKA",
     "state_title": "Melaka",
     "year": 2006,
     "deaths": 232,
@@ -368,7 +301,6 @@
     "death_rate": 30.73
   },
   {
-    "state_upper": "NEGERI SEMBILAN",
     "state_title": "Negeri Sembilan",
     "year": 2006,
     "deaths": 337,
@@ -376,7 +308,6 @@
     "death_rate": 34.85
   },
   {
-    "state_upper": "PAHANG",
     "state_title": "Pahang",
     "year": 2006,
     "deaths": 451,
@@ -384,7 +315,6 @@
     "death_rate": 31.73
   },
   {
-    "state_upper": "PERAK",
     "state_title": "Perak",
     "year": 2006,
     "deaths": 726,
@@ -392,7 +322,6 @@
     "death_rate": 31.85
   },
   {
-    "state_upper": "PERLIS",
     "state_title": "Perlis",
     "year": 2006,
     "deaths": 63,
@@ -400,7 +329,6 @@
     "death_rate": 28.07
   },
   {
-    "state_upper": "PULAU PINANG",
     "state_title": "Pulau Pinang",
     "year": 2006,
     "deaths": 381,
@@ -408,7 +336,6 @@
     "death_rate": 25.67
   },
   {
-    "state_upper": "SABAH",
     "state_title": "Sabah",
     "year": 2006,
     "deaths": 296,
@@ -416,7 +343,6 @@
     "death_rate": 9.99
   },
   {
-    "state_upper": "SARAWAK",
     "state_title": "Sarawak",
     "year": 2006,
     "deaths": 347,
@@ -424,7 +350,6 @@
     "death_rate": 14.93
   },
   {
-    "state_upper": "SELANGOR",
     "state_title": "Selangor",
     "year": 2006,
     "deaths": 1050,
@@ -432,7 +357,6 @@
     "death_rate": 21.06
   },
   {
-    "state_upper": "TERENGGANU",
     "state_title": "Terengganu",
     "year": 2006,
     "deaths": 307,
@@ -440,15 +364,6 @@
     "death_rate": 30.83
   },
   {
-    "state_upper": "WILAYAH PERSEKUTUAN",
-    "state_title": "W.P. Kuala Lumpur",
-    "year": 2006,
-    "deaths": 255,
-    "population": 1577.5,
-    "death_rate": 16.16
-  },
-  {
-    "state_upper": "JOHOR",
     "state_title": "Johor",
     "year": 2007,
     "deaths": 1023,
@@ -456,7 +371,6 @@
     "death_rate": 32.03
   },
   {
-    "state_upper": "KEDAH",
     "state_title": "Kedah",
     "year": 2007,
     "deaths": 492,
@@ -464,7 +378,6 @@
     "death_rate": 26.25
   },
   {
-    "state_upper": "KELANTAN",
     "state_title": "Kelantan",
     "year": 2007,
     "deaths": 374,
@@ -472,7 +385,6 @@
     "death_rate": 24.46
   },
   {
-    "state_upper": "MELAKA",
     "state_title": "Melaka",
     "year": 2007,
     "deaths": 227,
@@ -480,7 +392,6 @@
     "death_rate": 29.37
   },
   {
-    "state_upper": "NEGERI SEMBILAN",
     "state_title": "Negeri Sembilan",
     "year": 2007,
     "deaths": 320,
@@ -488,7 +399,6 @@
     "death_rate": 32.54
   },
   {
-    "state_upper": "PAHANG",
     "state_title": "Pahang",
     "year": 2007,
     "deaths": 437,
@@ -496,7 +406,6 @@
     "death_rate": 30.32
   },
   {
-    "state_upper": "PERAK",
     "state_title": "Perak",
     "year": 2007,
     "deaths": 811,
@@ -504,7 +413,6 @@
     "death_rate": 35.16
   },
   {
-    "state_upper": "PERLIS",
     "state_title": "Perlis",
     "year": 2007,
     "deaths": 41,
@@ -512,7 +420,6 @@
     "death_rate": 18.05
   },
   {
-    "state_upper": "PULAU PINANG",
     "state_title": "Pulau Pinang",
     "year": 2007,
     "deaths": 376,
@@ -520,7 +427,6 @@
     "death_rate": 24.94
   },
   {
-    "state_upper": "SABAH",
     "state_title": "Sabah",
     "year": 2007,
     "deaths": 316,
@@ -528,7 +434,6 @@
     "death_rate": 10.42
   },
   {
-    "state_upper": "SARAWAK",
     "state_title": "Sarawak",
     "year": 2007,
     "deaths": 316,
@@ -536,7 +441,6 @@
     "death_rate": 13.36
   },
   {
-    "state_upper": "SELANGOR",
     "state_title": "Selangor",
     "year": 2007,
     "deaths": 1025,
@@ -544,7 +448,6 @@
     "death_rate": 19.99
   },
   {
-    "state_upper": "TERENGGANU",
     "state_title": "Terengganu",
     "year": 2007,
     "deaths": 290,
@@ -552,15 +455,6 @@
     "death_rate": 28.7
   },
   {
-    "state_upper": "WILAYAH PERSEKUTUAN",
-    "state_title": "W.P. Kuala Lumpur",
-    "year": 2007,
-    "deaths": 234,
-    "population": 1603.3,
-    "death_rate": 14.59
-  },
-  {
-    "state_upper": "JOHOR",
     "state_title": "Johor",
     "year": 2008,
     "deaths": 1065,
@@ -568,7 +462,6 @@
     "death_rate": 32.75
   },
   {
-    "state_upper": "KEDAH",
     "state_title": "Kedah",
     "year": 2008,
     "deaths": 496,
@@ -576,7 +469,6 @@
     "death_rate": 26.1
   },
   {
-    "state_upper": "KELANTAN",
     "state_title": "Kelantan",
     "year": 2008,
     "deaths": 380,
@@ -584,7 +476,6 @@
     "death_rate": 24.52
   },
   {
-    "state_upper": "MELAKA",
     "state_title": "Melaka",
     "year": 2008,
     "deaths": 243,
@@ -592,7 +483,6 @@
     "death_rate": 30.74
   },
   {
-    "state_upper": "NEGERI SEMBILAN",
     "state_title": "Negeri Sembilan",
     "year": 2008,
     "deaths": 389,
@@ -600,7 +490,6 @@
     "death_rate": 38.92
   },
   {
-    "state_upper": "PAHANG",
     "state_title": "Pahang",
     "year": 2008,
     "deaths": 446,
@@ -608,7 +497,6 @@
     "death_rate": 30.51
   },
   {
-    "state_upper": "PERAK",
     "state_title": "Perak",
     "year": 2008,
     "deaths": 829,
@@ -616,7 +504,6 @@
     "death_rate": 35.55
   },
   {
-    "state_upper": "PERLIS",
     "state_title": "Perlis",
     "year": 2008,
     "deaths": 69,
@@ -624,7 +511,6 @@
     "death_rate": 29.99
   },
   {
-    "state_upper": "PULAU PINANG",
     "state_title": "Pulau Pinang",
     "year": 2008,
     "deaths": 354,
@@ -632,7 +518,6 @@
     "death_rate": 23.12
   },
   {
-    "state_upper": "SABAH",
     "state_title": "Sabah",
     "year": 2008,
     "deaths": 325,
@@ -640,7 +525,6 @@
     "death_rate": 10.47
   },
   {
-    "state_upper": "SARAWAK",
     "state_title": "Sarawak",
     "year": 2008,
     "deaths": 318,
@@ -648,7 +532,6 @@
     "death_rate": 13.2
   },
   {
-    "state_upper": "SELANGOR",
     "state_title": "Selangor",
     "year": 2008,
     "deaths": 1083,
@@ -656,7 +539,6 @@
     "death_rate": 20.56
   },
   {
-    "state_upper": "TERENGGANU",
     "state_title": "Terengganu",
     "year": 2008,
     "deaths": 293,
@@ -664,15 +546,6 @@
     "death_rate": 28.58
   },
   {
-    "state_upper": "WILAYAH PERSEKUTUAN",
-    "state_title": "W.P. Kuala Lumpur",
-    "year": 2008,
-    "deaths": 237,
-    "population": 1628.9,
-    "death_rate": 14.55
-  },
-  {
-    "state_upper": "JOHOR",
     "state_title": "Johor",
     "year": 2009,
     "deaths": 1060,
@@ -680,7 +553,6 @@
     "death_rate": 32.03
   },
   {
-    "state_upper": "KEDAH",
     "state_title": "Kedah",
     "year": 2009,
     "deaths": 550,
@@ -688,7 +560,6 @@
     "death_rate": 28.57
   },
   {
-    "state_upper": "KELANTAN",
     "state_title": "Kelantan",
     "year": 2009,
     "deaths": 453,
@@ -696,7 +567,6 @@
     "death_rate": 28.85
   },
   {
-    "state_upper": "MELAKA",
     "state_title": "Melaka",
     "year": 2009,
     "deaths": 248,
@@ -704,7 +574,6 @@
     "death_rate": 30.7
   },
   {
-    "state_upper": "NEGERI SEMBILAN",
     "state_title": "Negeri Sembilan",
     "year": 2009,
     "deaths": 377,
@@ -712,7 +581,6 @@
     "death_rate": 37.15
   },
   {
-    "state_upper": "PAHANG",
     "state_title": "Pahang",
     "year": 2009,
     "deaths": 512,
@@ -720,7 +588,6 @@
     "death_rate": 34.55
   },
   {
-    "state_upper": "PERAK",
     "state_title": "Perak",
     "year": 2009,
     "deaths": 829,
@@ -728,7 +595,6 @@
     "death_rate": 35.19
   },
   {
-    "state_upper": "PERLIS",
     "state_title": "Perlis",
     "year": 2009,
     "deaths": 90,
@@ -736,7 +602,6 @@
     "death_rate": 38.63
   },
   {
-    "state_upper": "PULAU PINANG",
     "state_title": "Pulau Pinang",
     "year": 2009,
     "deaths": 395,
@@ -744,7 +609,6 @@
     "death_rate": 25.41
   },
   {
-    "state_upper": "SABAH",
     "state_title": "Sabah",
     "year": 2009,
     "deaths": 345,
@@ -752,7 +616,6 @@
     "death_rate": 10.85
   },
   {
-    "state_upper": "SARAWAK",
     "state_title": "Sarawak",
     "year": 2009,
     "deaths": 332,
@@ -760,7 +623,6 @@
     "death_rate": 13.55
   },
   {
-    "state_upper": "SELANGOR",
     "state_title": "Selangor",
     "year": 2009,
     "deaths": 976,
@@ -768,7 +630,6 @@
     "death_rate": 18.01
   },
   {
-    "state_upper": "TERENGGANU",
     "state_title": "Terengganu",
     "year": 2009,
     "deaths": 348,
@@ -776,15 +637,6 @@
     "death_rate": 33.44
   },
   {
-    "state_upper": "WILAYAH PERSEKUTUAN",
-    "state_title": "W.P. Kuala Lumpur",
-    "year": 2009,
-    "deaths": 230,
-    "population": 1652.8,
-    "death_rate": 13.92
-  },
-  {
-    "state_upper": "JOHOR",
     "state_title": "Johor",
     "year": 2010,
     "deaths": 1076,
@@ -792,7 +644,6 @@
     "death_rate": 32.0
   },
   {
-    "state_upper": "KEDAH",
     "state_title": "Kedah",
     "year": 2010,
     "deaths": 532,
@@ -800,7 +651,6 @@
     "death_rate": 27.29
   },
   {
-    "state_upper": "KELANTAN",
     "state_title": "Kelantan",
     "year": 2010,
     "deaths": 380,
@@ -808,7 +658,6 @@
     "death_rate": 23.9
   },
   {
-    "state_upper": "MELAKA",
     "state_title": "Melaka",
     "year": 2010,
     "deaths": 235,
@@ -816,7 +665,6 @@
     "death_rate": 28.53
   },
   {
-    "state_upper": "NEGERI SEMBILAN",
     "state_title": "Negeri Sembilan",
     "year": 2010,
     "deaths": 399,
@@ -824,7 +672,6 @@
     "death_rate": 38.76
   },
   {
-    "state_upper": "PAHANG",
     "state_title": "Pahang",
     "year": 2010,
     "deaths": 574,
@@ -832,7 +679,6 @@
     "death_rate": 38.22
   },
   {
-    "state_upper": "PERAK",
     "state_title": "Perak",
     "year": 2010,
     "deaths": 820,
@@ -840,7 +686,6 @@
     "death_rate": 34.47
   },
   {
-    "state_upper": "PERLIS",
     "state_title": "Perlis",
     "year": 2010,
     "deaths": 66,
@@ -848,7 +693,6 @@
     "death_rate": 27.99
   },
   {
-    "state_upper": "PULAU PINANG",
     "state_title": "Pulau Pinang",
     "year": 2010,
     "deaths": 370,
@@ -856,7 +700,6 @@
     "death_rate": 23.48
   },
   {
-    "state_upper": "SABAH",
     "state_title": "Sabah",
     "year": 2010,
     "deaths": 447,
@@ -864,7 +707,6 @@
     "death_rate": 13.71
   },
   {
-    "state_upper": "SARAWAK",
     "state_title": "Sarawak",
     "year": 2010,
     "deaths": 365,
@@ -872,7 +714,6 @@
     "death_rate": 14.68
   },
   {
-    "state_upper": "SELANGOR",
     "state_title": "Selangor",
     "year": 2010,
     "deaths": 1061,
@@ -880,7 +721,6 @@
     "death_rate": 19.28
   },
   {
-    "state_upper": "TERENGGANU",
     "state_title": "Terengganu",
     "year": 2010,
     "deaths": 314,
@@ -888,15 +728,6 @@
     "death_rate": 29.75
   },
   {
-    "state_upper": "WILAYAH PERSEKUTUAN",
-    "state_title": "W.P. Kuala Lumpur",
-    "year": 2010,
-    "deaths": 233,
-    "population": 1674.8,
-    "death_rate": 13.91
-  },
-  {
-    "state_upper": "JOHOR",
     "state_title": "Johor",
     "year": 2011,
     "deaths": 1073,
@@ -904,7 +735,6 @@
     "death_rate": 31.46
   },
   {
-    "state_upper": "KEDAH",
     "state_title": "Kedah",
     "year": 2011,
     "deaths": 515,
@@ -912,7 +742,6 @@
     "death_rate": 26.12
   },
   {
-    "state_upper": "KELANTAN",
     "state_title": "Kelantan",
     "year": 2011,
     "deaths": 392,
@@ -920,7 +749,6 @@
     "death_rate": 24.22
   },
   {
-    "state_upper": "MELAKA",
     "state_title": "Melaka",
     "year": 2011,
     "deaths": 240,
@@ -928,7 +756,6 @@
     "death_rate": 28.8
   },
   {
-    "state_upper": "NEGERI SEMBILAN",
     "state_title": "Negeri Sembilan",
     "year": 2011,
     "deaths": 374,
@@ -936,7 +763,6 @@
     "death_rate": 35.71
   },
   {
-    "state_upper": "PAHANG",
     "state_title": "Pahang",
     "year": 2011,
     "deaths": 563,
@@ -944,7 +770,6 @@
     "death_rate": 36.87
   },
   {
-    "state_upper": "PERAK",
     "state_title": "Perak",
     "year": 2011,
     "deaths": 811,
@@ -952,7 +777,6 @@
     "death_rate": 33.75
   },
   {
-    "state_upper": "PERLIS",
     "state_title": "Perlis",
     "year": 2011,
     "deaths": 79,
@@ -960,7 +784,6 @@
     "death_rate": 33.29
   },
   {
-    "state_upper": "PULAU PINANG",
     "state_title": "Pulau Pinang",
     "year": 2011,
     "deaths": 392,
@@ -968,7 +791,6 @@
     "death_rate": 24.48
   },
   {
-    "state_upper": "SABAH",
     "state_title": "Sabah",
     "year": 2011,
     "deaths": 398,
@@ -976,7 +798,6 @@
     "death_rate": 11.9
   },
   {
-    "state_upper": "SARAWAK",
     "state_title": "Sarawak",
     "year": 2011,
     "deaths": 442,
@@ -984,7 +805,6 @@
     "death_rate": 17.48
   },
   {
-    "state_upper": "SELANGOR",
     "state_title": "Selangor",
     "year": 2011,
     "deaths": 1070,
@@ -992,7 +812,6 @@
     "death_rate": 19.11
   },
   {
-    "state_upper": "TERENGGANU",
     "state_title": "Terengganu",
     "year": 2011,
     "deaths": 292,
@@ -1000,15 +819,6 @@
     "death_rate": 27.06
   },
   {
-    "state_upper": "WILAYAH PERSEKUTUAN",
-    "state_title": "W.P. Kuala Lumpur",
-    "year": 2011,
-    "deaths": 236,
-    "population": 1693.0,
-    "death_rate": 13.94
-  },
-  {
-    "state_upper": "JOHOR",
     "state_title": "Johor",
     "year": 2012,
     "deaths": 1073,
@@ -1016,7 +826,6 @@
     "death_rate": 31.1
   },
   {
-    "state_upper": "KEDAH",
     "state_title": "Kedah",
     "year": 2012,
     "deaths": 548,
@@ -1024,7 +833,6 @@
     "death_rate": 27.38
   },
   {
-    "state_upper": "KELANTAN",
     "state_title": "Kelantan",
     "year": 2012,
     "deaths": 392,
@@ -1032,7 +840,6 @@
     "death_rate": 23.74
   },
   {
-    "state_upper": "MELAKA",
     "state_title": "Melaka",
     "year": 2012,
     "deaths": 243,
@@ -1040,7 +847,6 @@
     "death_rate": 28.82
   },
   {
-    "state_upper": "NEGERI SEMBILAN",
     "state_title": "Negeri Sembilan",
     "year": 2012,
     "deaths": 352,
@@ -1048,7 +854,6 @@
     "death_rate": 33.28
   },
   {
-    "state_upper": "PAHANG",
     "state_title": "Pahang",
     "year": 2012,
     "deaths": 540,
@@ -1056,7 +861,6 @@
     "death_rate": 34.9
   },
   {
-    "state_upper": "PERAK",
     "state_title": "Perak",
     "year": 2012,
     "deaths": 753,
@@ -1064,7 +868,6 @@
     "death_rate": 31.03
   },
   {
-    "state_upper": "PERLIS",
     "state_title": "Perlis",
     "year": 2012,
     "deaths": 71,
@@ -1072,7 +875,6 @@
     "death_rate": 29.66
   },
   {
-    "state_upper": "PULAU PINANG",
     "state_title": "Pulau Pinang",
     "year": 2012,
     "deaths": 400,
@@ -1080,7 +882,6 @@
     "death_rate": 24.64
   },
   {
-    "state_upper": "SABAH",
     "state_title": "Sabah",
     "year": 2012,
     "deaths": 450,
@@ -1088,7 +889,6 @@
     "death_rate": 13.11
   },
   {
-    "state_upper": "SARAWAK",
     "state_title": "Sarawak",
     "year": 2012,
     "deaths": 443,
@@ -1096,7 +896,6 @@
     "death_rate": 17.24
   },
   {
-    "state_upper": "SELANGOR",
     "state_title": "Selangor",
     "year": 2012,
     "deaths": 1102,
@@ -1104,7 +903,6 @@
     "death_rate": 19.33
   },
   {
-    "state_upper": "TERENGGANU",
     "state_title": "Terengganu",
     "year": 2012,
     "deaths": 301,
@@ -1112,15 +910,6 @@
     "death_rate": 27.51
   },
   {
-    "state_upper": "WILAYAH PERSEKUTUAN",
-    "state_title": "W.P. Kuala Lumpur",
-    "year": 2012,
-    "deaths": 249,
-    "population": 1702.1,
-    "death_rate": 14.63
-  },
-  {
-    "state_upper": "JOHOR",
     "state_title": "Johor",
     "year": 2013,
     "deaths": 1128,
@@ -1128,7 +917,6 @@
     "death_rate": 32.47
   },
   {
-    "state_upper": "KEDAH",
     "state_title": "Kedah",
     "year": 2013,
     "deaths": 517,
@@ -1136,7 +924,6 @@
     "death_rate": 25.35
   },
   {
-    "state_upper": "KELANTAN",
     "state_title": "Kelantan",
     "year": 2013,
     "deaths": 378,
@@ -1144,7 +931,6 @@
     "death_rate": 22.45
   },
   {
-    "state_upper": "MELAKA",
     "state_title": "Melaka",
     "year": 2013,
     "deaths": 258,
@@ -1152,7 +938,6 @@
     "death_rate": 30.12
   },
   {
-    "state_upper": "NEGERI SEMBILAN",
     "state_title": "Negeri Sembilan",
     "year": 2013,
     "deaths": 396,
@@ -1160,7 +945,6 @@
     "death_rate": 36.93
   },
   {
-    "state_upper": "PAHANG",
     "state_title": "Pahang",
     "year": 2013,
     "deaths": 592,
@@ -1168,7 +952,6 @@
     "death_rate": 37.74
   },
   {
-    "state_upper": "PERAK",
     "state_title": "Perak",
     "year": 2013,
     "deaths": 770,
@@ -1176,7 +959,6 @@
     "death_rate": 31.46
   },
   {
-    "state_upper": "PERLIS",
     "state_title": "Perlis",
     "year": 2013,
     "deaths": 72,
@@ -1184,7 +966,6 @@
     "death_rate": 29.74
   },
   {
-    "state_upper": "PULAU PINANG",
     "state_title": "Pulau Pinang",
     "year": 2013,
     "deaths": 381,
@@ -1192,7 +973,6 @@
     "death_rate": 22.92
   },
   {
-    "state_upper": "SABAH",
     "state_title": "Sabah",
     "year": 2013,
     "deaths": 420,
@@ -1200,7 +980,6 @@
     "death_rate": 11.63
   },
   {
-    "state_upper": "SARAWAK",
     "state_title": "Sarawak",
     "year": 2013,
     "deaths": 421,
@@ -1208,7 +987,6 @@
     "death_rate": 15.93
   },
   {
-    "state_upper": "SELANGOR",
     "state_title": "Selangor",
     "year": 2013,
     "deaths": 1019,
@@ -1216,7 +994,6 @@
     "death_rate": 17.26
   },
   {
-    "state_upper": "TERENGGANU",
     "state_title": "Terengganu",
     "year": 2013,
     "deaths": 320,
@@ -1224,15 +1001,6 @@
     "death_rate": 28.74
   },
   {
-    "state_upper": "WILAYAH PERSEKUTUAN",
-    "state_title": "W.P. Kuala Lumpur",
-    "year": 2013,
-    "deaths": 243,
-    "population": 1723.4,
-    "death_rate": 14.1
-  },
-  {
-    "state_upper": "JOHOR",
     "state_title": "Johor",
     "year": 2014,
     "deaths": 1018,
@@ -1240,7 +1008,6 @@
     "death_rate": 28.6
   },
   {
-    "state_upper": "KEDAH",
     "state_title": "Kedah",
     "year": 2014,
     "deaths": 525,
@@ -1248,7 +1015,6 @@
     "death_rate": 25.45
   },
   {
-    "state_upper": "KELANTAN",
     "state_title": "Kelantan",
     "year": 2014,
     "deaths": 354,
@@ -1256,7 +1022,6 @@
     "death_rate": 20.54
   },
   {
-    "state_upper": "MELAKA",
     "state_title": "Melaka",
     "year": 2014,
     "deaths": 236,
@@ -1264,7 +1029,6 @@
     "death_rate": 27.07
   },
   {
-    "state_upper": "NEGERI SEMBILAN",
     "state_title": "Negeri Sembilan",
     "year": 2014,
     "deaths": 379,
@@ -1272,7 +1036,6 @@
     "death_rate": 35.11
   },
   {
-    "state_upper": "PAHANG",
     "state_title": "Pahang",
     "year": 2014,
     "deaths": 539,
@@ -1280,7 +1043,6 @@
     "death_rate": 33.86
   },
   {
-    "state_upper": "PERAK",
     "state_title": "Perak",
     "year": 2014,
     "deaths": 750,
@@ -1288,7 +1050,6 @@
     "death_rate": 30.5
   },
   {
-    "state_upper": "PERLIS",
     "state_title": "Perlis",
     "year": 2014,
     "deaths": 61,
@@ -1296,7 +1057,6 @@
     "death_rate": 24.89
   },
   {
-    "state_upper": "PULAU PINANG",
     "state_title": "Pulau Pinang",
     "year": 2014,
     "deaths": 378,
@@ -1304,7 +1064,6 @@
     "death_rate": 22.53
   },
   {
-    "state_upper": "SABAH",
     "state_title": "Sabah",
     "year": 2014,
     "deaths": 420,
@@ -1312,7 +1071,6 @@
     "death_rate": 11.44
   },
   {
-    "state_upper": "SARAWAK",
     "state_title": "Sarawak",
     "year": 2014,
     "deaths": 432,
@@ -1320,7 +1078,6 @@
     "death_rate": 16.22
   },
   {
-    "state_upper": "SELANGOR",
     "state_title": "Selangor",
     "year": 2014,
     "deaths": 1068,
@@ -1328,7 +1085,6 @@
     "death_rate": 17.65
   },
   {
-    "state_upper": "TERENGGANU",
     "state_title": "Terengganu",
     "year": 2014,
     "deaths": 276,
@@ -1336,15 +1092,6 @@
     "death_rate": 24.2
   },
   {
-    "state_upper": "WILAYAH PERSEKUTUAN",
-    "state_title": "W.P. Kuala Lumpur",
-    "year": 2014,
-    "deaths": 238,
-    "population": 1737.4,
-    "death_rate": 13.7
-  },
-  {
-    "state_upper": "JOHOR",
     "state_title": "Johor",
     "year": 2015,
     "deaths": 1040,
@@ -1352,7 +1099,6 @@
     "death_rate": 28.81
   },
   {
-    "state_upper": "KEDAH",
     "state_title": "Kedah",
     "year": 2015,
     "deaths": 530,
@@ -1360,7 +1106,6 @@
     "death_rate": 25.28
   },
   {
-    "state_upper": "KELANTAN",
     "state_title": "Kelantan",
     "year": 2015,
     "deaths": 426,
@@ -1368,7 +1113,6 @@
     "death_rate": 24.2
   },
   {
-    "state_upper": "MELAKA",
     "state_title": "Melaka",
     "year": 2015,
     "deaths": 256,
@@ -1376,7 +1120,6 @@
     "death_rate": 28.8
   },
   {
-    "state_upper": "NEGERI SEMBILAN",
     "state_title": "Negeri Sembilan",
     "year": 2015,
     "deaths": 355,
@@ -1384,7 +1127,6 @@
     "death_rate": 32.6
   },
   {
-    "state_upper": "PAHANG",
     "state_title": "Pahang",
     "year": 2015,
     "deaths": 532,
@@ -1392,7 +1134,6 @@
     "death_rate": 33.09
   },
   {
-    "state_upper": "PERAK",
     "state_title": "Perak",
     "year": 2015,
     "deaths": 726,
@@ -1400,7 +1141,6 @@
     "death_rate": 29.43
   },
   {
-    "state_upper": "PERLIS",
     "state_title": "Perlis",
     "year": 2015,
     "deaths": 65,
@@ -1408,7 +1148,6 @@
     "death_rate": 26.16
   },
   {
-    "state_upper": "PULAU PINANG",
     "state_title": "Pulau Pinang",
     "year": 2015,
     "deaths": 360,
@@ -1416,7 +1155,6 @@
     "death_rate": 21.2
   },
   {
-    "state_upper": "SABAH",
     "state_title": "Sabah",
     "year": 2015,
     "deaths": 392,
@@ -1424,7 +1162,6 @@
     "death_rate": 10.54
   },
   {
-    "state_upper": "SARAWAK",
     "state_title": "Sarawak",
     "year": 2015,
     "deaths": 433,
@@ -1432,7 +1169,6 @@
     "death_rate": 16.03
   },
   {
-    "state_upper": "SELANGOR",
     "state_title": "Selangor",
     "year": 2015,
     "deaths": 1028,
@@ -1440,7 +1176,6 @@
     "death_rate": 16.64
   },
   {
-    "state_upper": "TERENGGANU",
     "state_title": "Terengganu",
     "year": 2015,
     "deaths": 307,
@@ -1448,15 +1183,6 @@
     "death_rate": 26.44
   },
   {
-    "state_upper": "WILAYAH PERSEKUTUAN",
-    "state_title": "W.P. Kuala Lumpur",
-    "year": 2015,
-    "deaths": 256,
-    "population": 1780.4,
-    "death_rate": 14.38
-  },
-  {
-    "state_upper": "JOHOR",
     "state_title": "Johor",
     "year": 2016,
     "deaths": 1135,
@@ -1464,7 +1190,6 @@
     "death_rate": 31.08
   },
   {
-    "state_upper": "KEDAH",
     "state_title": "Kedah",
     "year": 2016,
     "deaths": 572,
@@ -1472,7 +1197,6 @@
     "death_rate": 26.98
   },
   {
-    "state_upper": "KELANTAN",
     "state_title": "Kelantan",
     "year": 2016,
     "deaths": 453,
@@ -1480,7 +1204,6 @@
     "death_rate": 25.21
   },
   {
-    "state_upper": "MELAKA",
     "state_title": "Melaka",
     "year": 2016,
     "deaths": 247,
@@ -1488,7 +1211,6 @@
     "death_rate": 27.41
   },
   {
-    "state_upper": "NEGERI SEMBILAN",
     "state_title": "Negeri Sembilan",
     "year": 2016,
     "deaths": 414,
@@ -1496,7 +1218,6 @@
     "death_rate": 37.66
   },
   {
-    "state_upper": "PAHANG",
     "state_title": "Pahang",
     "year": 2016,
     "deaths": 539,
@@ -1504,7 +1225,6 @@
     "death_rate": 33.13
   },
   {
-    "state_upper": "PERAK",
     "state_title": "Perak",
     "year": 2016,
     "deaths": 789,
@@ -1512,7 +1232,6 @@
     "death_rate": 31.79
   },
   {
-    "state_upper": "PERLIS",
     "state_title": "Perlis",
     "year": 2016,
     "deaths": 67,
@@ -1520,7 +1239,6 @@
     "death_rate": 26.69
   },
   {
-    "state_upper": "PULAU PINANG",
     "state_title": "Pulau Pinang",
     "year": 2016,
     "deaths": 411,
@@ -1528,7 +1246,6 @@
     "death_rate": 23.93
   },
   {
-    "state_upper": "SABAH",
     "state_title": "Sabah",
     "year": 2016,
     "deaths": 379,
@@ -1536,7 +1253,6 @@
     "death_rate": 9.97
   },
   {
-    "state_upper": "SARAWAK",
     "state_title": "Sarawak",
     "year": 2016,
     "deaths": 432,
@@ -1544,7 +1260,6 @@
     "death_rate": 15.77
   },
   {
-    "state_upper": "SELANGOR",
     "state_title": "Selangor",
     "year": 2016,
     "deaths": 1140,
@@ -1552,7 +1267,6 @@
     "death_rate": 18.12
   },
   {
-    "state_upper": "TERENGGANU",
     "state_title": "Terengganu",
     "year": 2016,
     "deaths": 342,
@@ -1560,15 +1274,6 @@
     "death_rate": 28.9
   },
   {
-    "state_upper": "WILAYAH PERSEKUTUAN",
-    "state_title": "W.P. Kuala Lumpur",
-    "year": 2016,
-    "deaths": 232,
-    "population": 1789.7,
-    "death_rate": 12.96
-  },
-  {
-    "state_upper": "JOHOR",
     "state_title": "Johor",
     "year": 2017,
     "deaths": 1067,
@@ -1576,7 +1281,6 @@
     "death_rate": 28.86
   },
   {
-    "state_upper": "KEDAH",
     "state_title": "Kedah",
     "year": 2017,
     "deaths": 560,
@@ -1584,7 +1288,6 @@
     "death_rate": 26.12
   },
   {
-    "state_upper": "KELANTAN",
     "state_title": "Kelantan",
     "year": 2017,
     "deaths": 442,
@@ -1592,7 +1295,6 @@
     "death_rate": 24.17
   },
   {
-    "state_upper": "MELAKA",
     "state_title": "Melaka",
     "year": 2017,
     "deaths": 230,
@@ -1600,7 +1302,6 @@
     "death_rate": 25.19
   },
   {
-    "state_upper": "NEGERI SEMBILAN",
     "state_title": "Negeri Sembilan",
     "year": 2017,
     "deaths": 370,
@@ -1608,7 +1309,6 @@
     "death_rate": 33.21
   },
   {
-    "state_upper": "PAHANG",
     "state_title": "Pahang",
     "year": 2017,
     "deaths": 485,
@@ -1616,7 +1316,6 @@
     "death_rate": 29.45
   },
   {
-    "state_upper": "PERAK",
     "state_title": "Perak",
     "year": 2017,
     "deaths": 711,
@@ -1624,7 +1323,6 @@
     "death_rate": 28.52
   },
   {
-    "state_upper": "PERLIS",
     "state_title": "Perlis",
     "year": 2017,
     "deaths": 62,
@@ -1632,7 +1330,6 @@
     "death_rate": 24.6
   },
   {
-    "state_upper": "PULAU PINANG",
     "state_title": "Pulau Pinang",
     "year": 2017,
     "deaths": 401,
@@ -1640,7 +1337,6 @@
     "death_rate": 22.99
   },
   {
-    "state_upper": "SABAH",
     "state_title": "Sabah",
     "year": 2017,
     "deaths": 351,
@@ -1648,7 +1344,6 @@
     "death_rate": 9.1
   },
   {
-    "state_upper": "SARAWAK",
     "state_title": "Sarawak",
     "year": 2017,
     "deaths": 408,
@@ -1656,7 +1351,6 @@
     "death_rate": 14.75
   },
   {
-    "state_upper": "SELANGOR",
     "state_title": "Selangor",
     "year": 2017,
     "deaths": 1087,
@@ -1664,7 +1358,6 @@
     "death_rate": 17.04
   },
   {
-    "state_upper": "TERENGGANU",
     "state_title": "Terengganu",
     "year": 2017,
     "deaths": 330,
@@ -1672,15 +1365,6 @@
     "death_rate": 27.32
   },
   {
-    "state_upper": "WILAYAH PERSEKUTUAN",
-    "state_title": "W.P. Kuala Lumpur",
-    "year": 2017,
-    "deaths": 236,
-    "population": 1793.2,
-    "death_rate": 13.16
-  },
-  {
-    "state_upper": "JOHOR",
     "state_title": "Johor",
     "year": 2018,
     "deaths": 977,
@@ -1688,7 +1372,6 @@
     "death_rate": 26.06
   },
   {
-    "state_upper": "KEDAH",
     "state_title": "Kedah",
     "year": 2018,
     "deaths": 509,
@@ -1696,7 +1379,6 @@
     "death_rate": 23.53
   },
   {
-    "state_upper": "KELANTAN",
     "state_title": "Kelantan",
     "year": 2018,
     "deaths": 420,
@@ -1704,7 +1386,6 @@
     "death_rate": 22.57
   },
   {
-    "state_upper": "MELAKA",
     "state_title": "Melaka",
     "year": 2018,
     "deaths": 191,
@@ -1712,7 +1393,6 @@
     "death_rate": 20.71
   },
   {
-    "state_upper": "NEGERI SEMBILAN",
     "state_title": "Negeri Sembilan",
     "year": 2018,
     "deaths": 362,
@@ -1720,7 +1400,6 @@
     "death_rate": 32.24
   },
   {
-    "state_upper": "PAHANG",
     "state_title": "Pahang",
     "year": 2018,
     "deaths": 485,
@@ -1728,7 +1407,6 @@
     "death_rate": 29.13
   },
   {
-    "state_upper": "PERAK",
     "state_title": "Perak",
     "year": 2018,
     "deaths": 693,
@@ -1736,7 +1414,6 @@
     "death_rate": 27.68
   },
   {
-    "state_upper": "PERLIS",
     "state_title": "Perlis",
     "year": 2018,
     "deaths": 64,
@@ -1744,7 +1421,6 @@
     "death_rate": 25.25
   },
   {
-    "state_upper": "PULAU PINANG",
     "state_title": "Pulau Pinang",
     "year": 2018,
     "deaths": 390,
@@ -1752,7 +1428,6 @@
     "death_rate": 22.12
   },
   {
-    "state_upper": "SABAH",
     "state_title": "Sabah",
     "year": 2018,
     "deaths": 310,
@@ -1760,7 +1435,6 @@
     "death_rate": 7.95
   },
   {
-    "state_upper": "SARAWAK",
     "state_title": "Sarawak",
     "year": 2018,
     "deaths": 333,
@@ -1768,7 +1442,6 @@
     "death_rate": 11.93
   },
   {
-    "state_upper": "SELANGOR",
     "state_title": "Selangor",
     "year": 2018,
     "deaths": 1046,
@@ -1776,7 +1449,6 @@
     "death_rate": 16.15
   },
   {
-    "state_upper": "TERENGGANU",
     "state_title": "Terengganu",
     "year": 2018,
     "deaths": 275,
@@ -1784,15 +1456,6 @@
     "death_rate": 22.39
   },
   {
-    "state_upper": "WILAYAH PERSEKUTUAN",
-    "state_title": "W.P. Kuala Lumpur",
-    "year": 2018,
-    "deaths": 229,
-    "population": 1790.0,
-    "death_rate": 12.79
-  },
-  {
-    "state_upper": "JOHOR",
     "state_title": "Johor",
     "year": 2019,
     "deaths": 1040,
@@ -1800,7 +1463,6 @@
     "death_rate": 27.65
   },
   {
-    "state_upper": "KEDAH",
     "state_title": "Kedah",
     "year": 2019,
     "deaths": 446,
@@ -1808,7 +1470,6 @@
     "death_rate": 20.52
   },
   {
-    "state_upper": "KELANTAN",
     "state_title": "Kelantan",
     "year": 2019,
     "deaths": 338,
@@ -1816,7 +1477,6 @@
     "death_rate": 17.94
   },
   {
-    "state_upper": "MELAKA",
     "state_title": "Melaka",
     "year": 2019,
     "deaths": 217,
@@ -1824,7 +1484,6 @@
     "death_rate": 23.37
   },
   {
-    "state_upper": "NEGERI SEMBILAN",
     "state_title": "Negeri Sembilan",
     "year": 2019,
     "deaths": 337,
@@ -1832,7 +1491,6 @@
     "death_rate": 29.92
   },
   {
-    "state_upper": "PAHANG",
     "state_title": "Pahang",
     "year": 2019,
     "deaths": 454,
@@ -1840,7 +1498,6 @@
     "death_rate": 27.16
   },
   {
-    "state_upper": "PERAK",
     "state_title": "Perak",
     "year": 2019,
     "deaths": 667,
@@ -1848,7 +1505,6 @@
     "death_rate": 26.59
   },
   {
-    "state_upper": "PERLIS",
     "state_title": "Perlis",
     "year": 2019,
     "deaths": 76,
@@ -1856,7 +1512,6 @@
     "death_rate": 29.92
   },
   {
-    "state_upper": "PULAU PINANG",
     "state_title": "Pulau Pinang",
     "year": 2019,
     "deaths": 392,
@@ -1864,7 +1519,6 @@
     "death_rate": 22.16
   },
   {
-    "state_upper": "SABAH",
     "state_title": "Sabah",
     "year": 2019,
     "deaths": 291,
@@ -1872,7 +1526,6 @@
     "death_rate": 7.45
   },
   {
-    "state_upper": "SARAWAK",
     "state_title": "Sarawak",
     "year": 2019,
     "deaths": 369,
@@ -1880,7 +1533,6 @@
     "death_rate": 13.15
   },
   {
-    "state_upper": "SELANGOR",
     "state_title": "Selangor",
     "year": 2019,
     "deaths": 1054,
@@ -1888,131 +1540,10 @@
     "death_rate": 16.2
   },
   {
-    "state_upper": "TERENGGANU",
     "state_title": "Terengganu",
     "year": 2019,
     "deaths": 277,
     "population": 1244.5,
     "death_rate": 22.26
-  },
-  {
-    "state_upper": "WILAYAH PERSEKUTUAN",
-    "state_title": "W.P. Kuala Lumpur",
-    "year": 2019,
-    "deaths": 209,
-    "population": 1782.5,
-    "death_rate": 11.73
-  },
-  {
-    "state_upper": "JOHOR",
-    "state_title": "Johor",
-    "year": 2020,
-    "deaths": 697,
-    "population": 4009.7,
-    "death_rate": 17.38
-  },
-  {
-    "state_upper": "KEDAH",
-    "state_title": "Kedah",
-    "year": 2020,
-    "deaths": 354,
-    "population": 2131.4,
-    "death_rate": 16.61
-  },
-  {
-    "state_upper": "KELANTAN",
-    "state_title": "Kelantan",
-    "year": 2020,
-    "deaths": 276,
-    "population": 1792.5,
-    "death_rate": 15.4
-  },
-  {
-    "state_upper": "MELAKA",
-    "state_title": "Melaka",
-    "year": 2020,
-    "deaths": 151,
-    "population": 998.4,
-    "death_rate": 15.12
-  },
-  {
-    "state_upper": "NEGERI SEMBILAN",
-    "state_title": "Negeri Sembilan",
-    "year": 2020,
-    "deaths": 235,
-    "population": 1200.0,
-    "death_rate": 19.58
-  },
-  {
-    "state_upper": "PAHANG",
-    "state_title": "Pahang",
-    "year": 2020,
-    "deaths": 356,
-    "population": 1591.3,
-    "death_rate": 22.37
-  },
-  {
-    "state_upper": "PERAK",
-    "state_title": "Perak",
-    "year": 2020,
-    "deaths": 491,
-    "population": 2496.0,
-    "death_rate": 19.67
-  },
-  {
-    "state_upper": "PERLIS",
-    "state_title": "Perlis",
-    "year": 2020,
-    "deaths": 46,
-    "population": 284.9,
-    "death_rate": 16.15
-  },
-  {
-    "state_upper": "PULAU PINANG",
-    "state_title": "Pulau Pinang",
-    "year": 2020,
-    "deaths": 287,
-    "population": 1740.4,
-    "death_rate": 16.49
-  },
-  {
-    "state_upper": "SABAH",
-    "state_title": "Sabah",
-    "year": 2020,
-    "deaths": 220,
-    "population": 3418.8,
-    "death_rate": 6.44
-  },
-  {
-    "state_upper": "SARAWAK",
-    "state_title": "Sarawak",
-    "year": 2020,
-    "deaths": 315,
-    "population": 2453.7,
-    "death_rate": 12.84
-  },
-  {
-    "state_upper": "SELANGOR",
-    "state_title": "Selangor",
-    "year": 2020,
-    "deaths": 805,
-    "population": 6994.4,
-    "death_rate": 11.51
-  },
-  {
-    "state_upper": "TERENGGANU",
-    "state_title": "Terengganu",
-    "year": 2020,
-    "deaths": 238,
-    "population": 1149.4,
-    "death_rate": 20.71
-  },
-  {
-    "state_upper": "WILAYAH PERSEKUTUAN",
-    "state_title": "W.P. Kuala Lumpur",
-    "year": 2020,
-    "deaths": 163,
-    "population": 1982.1,
-    "death_rate": 8.22
   }
 ]

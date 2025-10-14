@@ -1,0 +1,114 @@
+[
+  {
+    "year": 2003,
+    "vehicles": 12819248,
+    "crashes": 298653,
+    "deaths": 6286,
+    "serious": 9040,
+    "slight": 37415
+  },
+  {
+    "year": 2004,
+    "vehicles": 13764837,
+    "crashes": 326815,
+    "deaths": 6228,
+    "serious": 9218,
+    "slight": 38645
+  },
+  {
+    "year": 2005,
+    "vehicles": 14733585,
+    "crashes": 328264,
+    "deaths": 6200,
+    "serious": 9395,
+    "slight": 31417
+  },
+  {
+    "year": 2006,
+    "vehicles": 15790732,
+    "crashes": 341252,
+    "deaths": 6287,
+    "serious": 9253,
+    "slight": 19885
+  },
+  {
+    "year": 2007,
+    "vehicles": 16813943,
+    "crashes": 363319,
+    "deaths": 6282,
+    "serious": 9273,
+    "slight": 18444
+  },
+  {
+    "year": 2008,
+    "vehicles": 17733084,
+    "crashes": 373071,
+    "deaths": 6527,
+    "serious": 8868,
+    "slight": 16879
+  },
+  {
+    "year": 2009,
+    "vehicles": 18933237,
+    "crashes": 397330,
+    "deaths": 6745,
+    "serious": 8849,
+    "slight": 15823
+  },
+  {
+    "year": 2010,
+    "vehicles": 20006953,
+    "crashes": 414421,
+    "deaths": 6872,
+    "serious": 7781,
+    "slight": 13616
+  },
+  {
+    "year": 2011,
+    "vehicles": 21311630,
+    "crashes": 449040,
+    "deaths": 6877,
+    "serious": 6328,
+    "slight": 12365
+  },
+  {
+    "year": 2012,
+    "vehicles": 22590123,
+    "crashes": 462423,
+    "deaths": 6917,
+    "serious": 5868,
+    "slight": 11654
+  },
+  {
+    "year": 2013,
+    "vehicles": 23434640,
+    "crashes": 477204,
+    "deaths": 6915,
+    "serious": 4597,
+    "slight": 8388
+  },
+  {
+    "year": 2014,
+    "vehicles": 25101192,
+    "crashes": 476196,
+    "deaths": 6674,
+    "serious": 4432,
+    "slight": 8598
+  },
+  {
+    "year": 2015,
+    "vehicles": 26301952,
+    "crashes": 489606,
+    "deaths": 6706,
+    "serious": 4120,
+    "slight": 7432
+  },
+  {
+    "year": 2016,
+    "vehicles": 27638067,
+    "crashes": 521466,
+    "deaths": 7152,
+    "serious": 4506,
+    "slight": 7415
+  }
+]

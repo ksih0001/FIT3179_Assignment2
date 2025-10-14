@@ -1,0 +1,212 @@
+[
+  {
+    "year": 2003,
+    "severity": "Deaths",
+    "count": 6286
+  },
+  {
+    "year": 2003,
+    "severity": "Serious",
+    "count": 9040
+  },
+  {
+    "year": 2003,
+    "severity": "Slight",
+    "count": 37415
+  },
+  {
+    "year": 2004,
+    "severity": "Deaths",
+    "count": 6228
+  },
+  {
+    "year": 2004,
+    "severity": "Serious",
+    "count": 9218
+  },
+  {
+    "year": 2004,
+    "severity": "Slight",
+    "count": 38645
+  },
+  {
+    "year": 2005,
+    "severity": "Deaths",
+    "count": 6200
+  },
+  {
+    "year": 2005,
+    "severity": "Serious",
+    "count": 9395
+  },
+  {
+    "year": 2005,
+    "severity": "Slight",
+    "count": 31417
+  },
+  {
+    "year": 2006,
+    "severity": "Deaths",
+    "count": 6287
+  },
+  {
+    "year": 2006,
+    "severity": "Serious",
+    "count": 9253
+  },
+  {
+    "year": 2006,
+    "severity": "Slight",
+    "count": 19885
+  },
+  {
+    "year": 2007,
+    "severity": "Deaths",
+    "count": 6282
+  },
+  {
+    "year": 2007,
+    "severity": "Serious",
+    "count": 9273
+  },
+  {
+    "year": 2007,
+    "severity": "Slight",
+    "count": 18444
+  },
+  {
+    "year": 2008,
+    "severity": "Deaths",
+    "count": 6527
+  },
+  {
+    "year": 2008,
+    "severity": "Serious",
+    "count": 8868
+  },
+  {
+    "year": 2008,
+    "severity": "Slight",
+    "count": 16879
+  },
+  {
+    "year": 2009,
+    "severity": "Deaths",
+    "count": 6745
+  },
+  {
+    "year": 2009,
+    "severity": "Serious",
+    "count": 8849
+  },
+  {
+    "year": 2009,
+    "severity": "Slight",
+    "count": 15823
+  },
+  {
+    "year": 2010,
+    "severity": "Deaths",
+    "count": 6872
+  },
+  {
+    "year": 2010,
+    "severity": "Serious",
+    "count": 7781
+  },
+  {
+    "year": 2010,
+    "severity": "Slight",
+    "count": 13616
+  },
+  {
+    "year": 2011,
+    "severity": "Deaths",
+    "count": 6877
+  },
+  {
+    "year": 2011,
+    "severity": "Serious",
+    "count": 6328
+  },
+  {
+    "year": 2011,
+    "severity": "Slight",
+    "count": 12365
+  },
+  {
+    "year": 2012,
+    "severity": "Deaths",
+    "count": 6917
+  },
+  {
+    "year": 2012,
+    "severity": "Serious",
+    "count": 5868
+  },
+  {
+    "year": 2012,
+    "severity": "Slight",
+    "count": 11654
+  },
+  {
+    "year": 2013,
+    "severity": "Deaths",
+    "count": 6915
+  },
+  {
+    "year": 2013,
+    "severity": "Serious",
+    "count": 4597
+  },
+  {
+    "year": 2013,
+    "severity": "Slight",
+    "count": 8388
+  },
+  {
+    "year": 2014,
+    "severity": "Deaths",
+    "count": 6674
+  },
+  {
+    "year": 2014,
+    "severity": "Serious",
+    "count": 4432
+  },
+  {
+    "year": 2014,
+    "severity": "Slight",
+    "count": 8598
+  },
+  {
+    "year": 2015,
+    "severity": "Deaths",
+    "count": 6706
+  },
+  {
+    "year": 2015,
+    "severity": "Serious",
+    "count": 4120
+  },
+  {
+    "year": 2015,
+    "severity": "Slight",
+    "count": 7432
+  },
+  {
+    "year": 2016,
+    "severity": "Deaths",
+    "count": 7152
+  },
+  {
+    "year": 2016,
+    "severity": "Serious",
+    "count": 4506
+  },
+  {
+    "year": 2016,
+    "severity": "Slight",
+    "count": 7415
+  }
+]

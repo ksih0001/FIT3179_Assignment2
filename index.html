@@ -1,201 +1,429 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Malaysia Road Safety: Risks, Burden, and Change (2000–2019)</title>
-    <script src="https://cdn.jsdelivr.net/npm/vega@5.28.0"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.20.1"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.25.0"></script>
-    <link rel="stylesheet" href="css/styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Malaysia Road Safety: Crashes, Deaths, and State Patterns (2003–2016)</title>
+
+  <!-- Visualisation libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/vega@5.28.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.20.1"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.25.0"></script>
+
+  <style>
+    /* Reset and base */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.6;
+      color: #1a1a1a;
+      background: #ffffff;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 24px;
+      overflow-x: hidden;
+    }
+    html { overflow-x: hidden; }
+    a.skip-link { position: absolute; top: -40px; left: 0; background: #000; color: #fff; padding: 8px; text-decoration: none; }
+    a.skip-link:focus { top: 0; }
+
+    /* Header */
+    header {
+      text-align: center;
+      border-bottom: 3px solid #b71c1c;
+      padding-bottom: 20px;
+      margin-bottom: 28px;
+    }
+    header h1 { font-size: 2.2rem; font-weight: 700; letter-spacing: -0.3px; }
+    header .subtitle { color: #555; margin-top: 6px; }
+    header .metadata { color: #666; font-size: 0.9rem; margin-top: 10px; }
+    header .metadata strong { color: #1a1a1a; }
+
+    /* Sections */
+    section { margin-bottom: 48px; page-break-inside: avoid; }
+    section h2 {
+      font-size: 1.6rem; font-weight: 700;
+      border-bottom: 2px solid #b71c1c; padding-bottom: 8px; margin-bottom: 14px;
+    }
+    section h3 { font-size: 1.15rem; font-weight: 600; margin: 16px 0 10px; }
+    section p { text-align: justify; margin-bottom: 10px; font-size: 0.96rem; }
+
+    /* Key findings */
+    .key-findings { background: #fafafa; padding: 20px; border-radius: 4px; }
+    .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+    .stat-item { background: #fff; padding: 14px; text-align: center; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+    .stat-value { font-size: 1.9rem; font-weight: 700; color: #b71c1c; display: block; }
+    .stat-label { color: #444; font-size: 0.9rem; line-height: 1.35; }
+
+    /* Abstract box */
+    .abstract-box { padding: 16px 0px; }
+
+    /* Framing/notes boxes */
+    .terminology {
+      background: #eef7ff;
+      border: 1px solid #1e88e5;
+      border-left: 4px solid #1e88e5;
+      padding: 16px 18px;
+      margin-top: 12px;
+      border-radius: 4px;
+    }
+    .insight-box, .method-box {
+      padding: 16px 0px; margin-top: 12px;
+    }
+
+    /* Viz scaffolding */
+    .viz-section { margin-top: 18px; background: #fafafa; border-radius: 4px; padding: 18px; }
+    .viz-title { text-align: center; font-weight: 600; }
+    .viz-controls { background: #fff; border-radius: 4px; padding: 12px; margin: 12px 0; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+    .control-row { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
+    .control-row:last-child { margin-bottom: 0; }
+    .control-row label { min-width: 90px; font-weight: 600; }
+    .control-row input[type="range"] { flex: 1; }
+    .control-row input[type="checkbox"] { margin-right: 8px; }
+    .control-row select { padding: 5px 10px; font-size: 0.95rem; border: 1px solid #ccc; border-radius: 2px; }
+    .year-value { font-weight: 700; color: #b71c1c; }
+    .viz-chart { background: #fff; min-height: 380px; padding: 14px; margin-top: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); text-align: center; }
+    .viz-chart > div { display: inline-block; }
+    .viz-caption { font-size: 0.88rem; color: #555; font-style: italic; margin-top: 10px; text-align: justify; }
+
+    /* 2-column layout */
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+    .col { background: #fafafa; border-radius: 4px; padding: 18px; }
+
+    /* References & footer */
+    .references { border-top: 1px solid #ccc; padding-top: 16px; }
+    .references ol { padding-left: 24px; line-height: 1.7; font-size: 0.92rem; }
+    footer { margin-top: 42px; border-top: 2px solid #b71c1c; padding-top: 12px; text-align: center; color: #666; font-size: 0.88rem; }
+
+    /* Responsive */
+    @media (max-width: 980px){ .stats-grid{ grid-template-columns:repeat(2,1fr);} .two-col{ grid-template-columns:1fr; } }
+    @media (max-width: 600px){
+      header h1{ font-size:1.6rem; } .stats-grid{ grid-template-columns:1fr; }
+      .control-row{ flex-direction:column; align-items:flex-start; }
+      .control-row label{ min-width:auto; }
+    }
+    @media print{
+      .viz-controls{ display:none; } section{ page-break-inside:avoid; } body{ background:#fff; }
+    }
+  </style>
 </head>
 <body>
-    <!-- HEADER -->
-    <header class="main-header">
-        <h1>Malaysia Road Safety: Risks, Burden, and Change (2000–2019)</h1>
-        <p class="subtitle">SEA context (2000–2019) • National outcomes (1997–2016) • State patterns (2003–2019)</p>
-        <div class="metadata">
-            <p><strong>Author:</strong> Sih Kai Yin (Student ID: 35500336) | <strong>Date:</strong> October 2025</p>
-            <p class="data-sources"><strong>Data Sources:</strong> WHO Global Status Reports (2000–2019) • Malaysian Road Safety Reports (1997–2016) • State deaths (2003–2019) • State population (1995–2021)</p>
-        </div>
-    </header>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-    <!-- KEY INSIGHTS -->
-    <section class="insights-container">
-        <h2>Key Insights (1997–2019)</h2>
-        <div class="insights-grid">
-            <div class="insight-card">
-                <div class="insight-value">+223%</div>
-                <div class="insight-label">Registered Vehicles<br>(8.55M → 27.64M)</div>
-            </div>
-            <div class="insight-card">
-                <div class="insight-value">+142%</div>
-                <div class="insight-label">Road Crashes<br>(215,632 → 521,466)</div>
-            </div>
-            <div class="insight-card">
-                <div class="insight-value">+13.5%</div>
-                <div class="insight-label">Road Deaths<br>(6,302 → 7,152)</div>
-            </div>
-            <div class="insight-card">
-                <div class="insight-value">−35%</div>
-                <div class="insight-label">Crash Severity<br>(2.10% → 1.37%)</div>
-            </div>
+  <!-- HEADER -->
+  <header role="banner" aria-label="Header">
+    <h1>Malaysia Road Safety: Crashes, Deaths, and State Patterns (2003–2019)</h1>
+    <p class="subtitle">Southeast Asia context • National outcomes • State patterns</p>
+    <div class="metadata">
+      <p><strong>Author:</strong> Sih Kai Yin &nbsp;|&nbsp; <strong>Date:</strong> October 2025</p>
+      <p><strong>Data Sources:</strong> WHO Global Status Reports (2000–2019); Malaysian Road Safety Reports (1997–2016); State deaths (2003–2019); State population series (1995–2021)</p>
+    </div>
+  </header>
+
+  <main id="main" role="main">
+    <!-- KEY FINDINGS -->
+    <section class="key-findings" aria-labelledby="kf-title">
+      <h2 id="kf-title">Key Findings (2003–2016)</h2>
+      <div class="stats-grid" role="group" aria-label="Headline indicators">
+        <div class="stat-item">
+          <span class="stat-value">+116%</span>
+          <span class="stat-label">Registered Vehicles<br>(12.8M → 27.6M)</span>
         </div>
+        <div class="stat-item">
+          <span class="stat-value">+75%</span>
+          <span class="stat-label">Reported Crashes<br>(299K → 521K)</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-value">+14%</span>
+          <span class="stat-label">Road Deaths<br>(6,286 → 7,152)</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-value">−35%</span>
+          <span class="stat-label">Deaths per Crash<br>(2.10% → 1.37%)</span>
+        </div>
+      </div>
     </section>
 
-    <!-- GLOBAL CONTROLS -->
-    <section class="controls-container">
-        <div class="control-group">
-            <label for="global-year-slider">Year:</label>
-            <input type="range" id="global-year-slider" min="2003" max="2019" value="2019" step="1">
-            <span id="global-year-display" class="year-display">2019</span>
-        </div>
+    <!-- ABSTRACT -->
+    <section aria-labelledby="abs-title">
+      <h2 id="abs-title">Abstract</h2>
+      <div class="abstract-box">
+        <p>
+          This report examines Malaysia's road safety through three lenses: (1) regional benchmarking of mortality rates (2003–2019), (2) national
+          exposure–outcome trends (2003–2016), and (3) state-level deaths and population-standardized rates (2003–2019). From 2003 to 2016,
+          motorization and reported crashes rose substantially, while deaths increased only modestly and deaths per 100 crashes declined—indicating
+          improved survivability. States vary widely in both per-capita risk and absolute burden, motivating risk-focused prevention in high-rate states
+          and capacity-focused EMS/trauma investments where burdens are highest, alongside national action on speed, protective-device compliance, and
+          post-crash care.
+        </p>
+      </div>
     </section>
 
-    <!-- STORYTELLING SECTIONS -->
+    <!-- INTRODUCTION -->
+    <section aria-labelledby="intro-title">
+      <h2 id="intro-title">Introduction</h2>
+      <p>
+        Malaysia's motorization has expanded rapidly, bringing both opportunity and risk. Between 1997 and 2016, vehicle registrations more than
+        tripled and reported crashes rose sharply, yet deaths grew modestly and deaths per crash declined—the "severity paradox" consistent with
+        safer vehicles, targeted enforcement, engineering improvements, and enhanced emergency care. Crash volumes remain high and risk is uneven
+        across states. This report separates population-standardized risk from absolute burden and applies same-year benchmarks to support fair,
+        actionable comparisons.
+      </p>
+    </section>
 
-    <!-- STEP 1: REGIONAL CONTEXT -->
-    <section class="chart-section">
-        <div class="section-header">
-            <h2>Step 1: Regional Context</h2>
-            <p class="section-subtitle">Where does Malaysia sit in Southeast Asia?</p>
+    <section>
+      <div class="terminology" role="note" aria-label="Terminology and measures">
+        <h3>Terminology and Measures</h3>
+        <p><strong>Risk</strong> = mortality rate per 100,000 population (state-year deaths ÷ state-year population × 100,000).</p>
+        <p><strong>Burden</strong> = absolute deaths (system load on EMS and trauma care).</p>
+        <p><strong>Severity</strong> = deaths per 100 crashes (national deaths ÷ national crashes × 100).</p>
+        <p>The "national benchmark" used for state comparisons is computed from state sums for the same year to ensure like-for-like comparison.</p>
+      </div>
+    </section>
+
+    <!-- REGIONAL CONTEXT -->
+    <section aria-labelledby="s1">
+      <h2 id="s1">Regional Context: Malaysia Among Southeast Asian Peers</h2>
+      <p class="method-box">
+        Malaysia ranks among the highest in Southeast Asia. It moved from 2nd highest in 2003 to 3rd by 2019; use the slider to see how its
+        rate and relative standing evolve across 2003–2019.
+      </p>
+
+      <div class="viz-section">
+        <h3 class="viz-title">Southeast Asia: Death Rate per 100,000 (Year = <span id="sea-year-text">2019</span>)</h3>
+        <div class="viz-controls">
+          <div class="control-row">
+            <label for="sea-year">Year</label>
+            <input id="sea-year" type="range" min="2003" max="2019" value="2019" step="1" />
+            <span class="year-value" id="sea-year-display">2019</span>
+          </div>
         </div>
-        <div class="chart-container">
-            <div class="chart-header">
-                <h3>Southeast Asia: Death Rate per 100,000 (<span id="sea-year-display">2019</span>)</h3>
-                <div class="control-inline">
-                    <label for="sea-year-select">Year:</label>
-                    <select id="sea-year-select"></select>
-                </div>
+        <div class="viz-chart" id="chart1-sea-bar" role="img" aria-label="SEA horizontal bar chart"></div>
+        <p class="viz-caption">
+          Malaysia’s road-death rate is elevated by regional standards. Across 2003–2019 it generally sits in the upper tier and shows only modest
+          improvement over time, indicating a persistent gap to best-practice levels. Use the slider to follow Malaysia’s trajectory and relative standing
+          by year.
+        </p>
+      </div>
+    </section>
+
+    <!-- NATIONAL EVOLUTION -->
+    <section aria-labelledby="s2">
+      <h2 id="s2">National Trends: The Severity Paradox (2003–2016)</h2>
+      <p class="method-box">
+        Pair exposure and outcomes to demonstrate decoupling—vehicles and crashes rose rapidly (+116% and +75%), deaths rose moderately (+14%),
+        and deaths per crash declined significantly (−35%). Together, the views explain the "severity paradox."
+      </p>
+
+      <div class="two-col">
+        <div class="col">
+          <h3>Exposure vs Incidents: Vehicles, Crashes, Deaths</h3>
+          <div class="viz-chart" id="chart3-multi-line" role="img" aria-label="Small multiples of vehicles, crashes, deaths"></div>
+          <p class="viz-caption">
+            Between 2003 and 2016, Malaysia experienced substantial growth in vehicle ownership (+116%, 12.8M → 27.6M) and reported crashes (+75%, 299K → 521K).
+            However, road deaths rose more modestly (+14%, 6,286 → 7,152), resulting in a dramatic decline in crash lethality (−35%, 2.10% → 1.37%).
+            This pattern reflects enhanced vehicle safety technology, improved emergency medical services, infrastructure investments, and incremental enforcement improvements.
+          </p>
+        </div>
+        <div class="col">
+          <h3>Crash Outcomes: Deaths, Serious, Slight</h3>
+          <div class="viz-chart" id="chart2-stacked-area" role="img" aria-label="Stacked area of outcomes"></div>
+          <p class="viz-caption">
+            The fatal share contracts over time: deaths per 100 crashes fell from ~2.10% (2003) to ~1.37% (2016)—a 35% reduction in fatality risk conditional
+            on being involved in a crash. Notably, while serious and slight injuries decreased substantially (serious: 9,040 → 4,506; slight: 37,415 → 7,415),
+            absolute deaths increased from 6,286 to 7,152 (+14%). This paradox—declining crash severity alongside rising absolute fatalities—underscores the
+            challenge posed by growing crash volumes overwhelming safety improvements.
+          </p>
+        </div>
+      </div>
+          </section>
+
+    <!-- SPATIAL PATTERNS -->
+    <section aria-labelledby="s3">
+      <h2 id="s3">Geographic Distribution: Risk Varies Dramatically by State</h2>
+      <p class="method-box">
+        Convert counts to population-standardized rates to compare states fairly in any year and to identify persistent hot spots and troughs.
+      </p>
+
+      <div class="viz-section">
+        <h3 class="viz-title">State Risk Map: Deaths per 100,000 (Year = <span id="map-year-text">2019</span>)</h3>
+        <div class="viz-controls">
+          <div class="control-row">
+            <label for="map-year">Year</label>
+            <input id="map-year" type="range" min="2003" max="2019" value="2019" step="1" />
+            <span class="year-value" id="map-year-display">2019</span>
+          </div>
+        </div>
+        <div class="viz-chart" id="chart4-choropleth" role="img" aria-label="Choropleth map of state mortality rates"></div>
+        <p class="viz-caption">
+          Road safety risk in Malaysia is persistently uneven across states. Across 2003–2019, a three‑to‑four‑fold spread in mortality rates is typical.
+          Smaller states can exhibit higher per‑capita risk, while populous states contribute a larger share of deaths. Patterns are relatively stable over
+          time, indicating structural rather than transient factors.
+        </p>
+      </div>
+      <p class="viz-caption">Conclusion: State risk is structurally uneven and persistent.</p>
+      <ul class="viz-caption">
+        <li>Smaller states can have higher rates; populous states drive total deaths.</li>
+        <li>Relative patterns change slowly across years.</li>
+        <li>Target prevention to high‑rate states; scale EMS/trauma where burdens are greatest.</li>
+      </ul>
+    </section>
+
+    <!-- STATE COMPARISONS -->
+    <section aria-labelledby="s4">
+      <h2 id="s4">State Comparisons: Risk and Burden in a Single Year</h2>
+      <p class="method-box">
+        In a singleyear, compare states on either risk (rate) or burden (absolute deaths). The deviation bar chart shows each state relative
+        to the national benchmark.
+      </p>
+
+      <div class="two-col">
+        <div class="col">
+          <h3>State Comparison (Year = <span id="bar-year-text">2019</span>)</h3>
+          <div class="viz-controls">
+            <div class="control-row">
+              <label for="metric-toggle">Metric</label>
+              <input type="checkbox" id="metric-toggle" />
+              <span>Show Absolute Deaths</span>
             </div>
-            <div id="chart1-sea-bar" class="vis-chart"></div>
-            <p class="chart-caption">Malaysia ranks mid-high in the region. Thailand consistently shows the highest rates, while Singapore maintains the lowest.</p>
+          </div>
+          <div class="viz-chart" id="chart5-grouped-bar" role="img" aria-label="Grouped horizontal bars by state"></div>
+          <p class="viz-caption">
+            Effective road safety policy requires distinguishing personal risk (rate per capita) from system burden (absolute deaths). In most years, the
+            highest‑rate states are not the same as the highest‑burden states. Use the toggle to switch metrics and the slider to change year. Direct
+            prevention to high‑rate states; scale EMS/trauma capacity where absolute deaths are largest.
+          </p>
         </div>
+        <div class="col">
+          <h3>State Deviation from National (Year = <span id="deviation-year-text">2019</span>)</h3>
+          <div class="viz-chart" id="chart8-deviation-bar" role="img" aria-label="Deviation bar showing states above/below national average"></div>
+          <p class="viz-caption">
+            The diverging bar chart makes accountability transparent. States consistently above the national benchmark warrant scrutiny: are infrastructure
+            deficits, enforcement gaps, or behavioral factors responsible? States below average (particularly W.P. KL and Sabah) offer potential lessons.
+            Bars extending right (orange/red) indicate above-average risk requiring targeted interventions; bars extending left (blue) show
+            below-average risk with potential best practices to replicate.
+          </p>
+        </div>
+      </div>
+      <p class="viz-caption">Conclusion: High‑rate states differ from high‑burden states—match actions to metrics.</p>
+      <ul class="viz-caption">
+        <li>Use rates to assess personal risk; use counts for system capacity planning.</li>
+        <li>Benchmark by year to surface outliers for targeted action.</li>
+        <li>Allocate prevention to high‑rate states; expand EMS/trauma where deaths are largest.</li>
+      </ul>
     </section>
 
-    <!-- STEP 2: NATIONAL EVOLUTION -->
-    <section class="chart-section">
-        <div class="section-header">
-            <h2>Step 2: National Evolution</h2>
-            <p class="section-subtitle">How did exposure and outcomes evolve over time?</p>
+    <!-- ABSOLUTE CHANGE -->
+    <section aria-labelledby="s5">
+      <h2 id="s5">Temporal Change: Winners and Losers (2003–2019)</h2>
+      <p class="method-box">
+        Shows absolute deaths in Year A versus Year B. This reveals shifts in system load, not just risk. Points above the diagonal worsened;
+        below improved.
+      </p>
+
+      <div class="viz-section">
+        <h3 class="viz-title">Deaths: Year A vs Year B (by State)</h3>
+        <div class="viz-controls">
+          <div class="control-row">
+            <label for="scatter-year-a">Year A</label>
+            <select id="scatter-year-a" aria-label="Scatter Year A"></select>
+            <label for="scatter-year-b">Year B</label>
+            <select id="scatter-year-b" aria-label="Scatter Year B"></select>
+          </div>
         </div>
-        <div class="two-column-charts">
-            <div class="chart-container">
-                <h3>National Outcomes (Counts): Deaths, Serious, Slight (1997–2016)</h3>
-                <div id="chart2-stacked-area" class="vis-chart"></div>
-                <p class="chart-caption">While crash counts grew dramatically, deaths grew much slower—suggesting improvements in vehicle safety and emergency response.</p>
-            </div>
-            <div class="chart-container">
-                <h3>Exposure vs Incidents: Vehicles, Crashes, Deaths×100 (1997–2016)</h3>
-                <div id="chart3-multi-line" class="vis-chart"></div>
-                <p class="chart-caption">Vehicle registrations grew 223%, crashes 142%, but deaths only 13.5%—a clear decoupling trend.</p>
-            </div>
-        </div>
-        <div class="narrative-box">
-            <h4>The Paradox</h4>
-            <p>Malaysia's motorization and crashes rose sharply (1997–2016), but deaths per crash fell by about a third. Safer vehicles, enforcement, and emergency response likely contributed.</p>
-        </div>
+        <div class="viz-chart" id="chart6-scatter" role="img" aria-label="Scatter of deaths across two years"></div>
+        <p class="viz-caption">
+          Between 2003 and 2019, Malaysian states diverged in their road safety performance. Eight states reduced absolute death counts (appearing below
+          the diagonal), while six saw increases (above the diagonal). Notable trajectories: W.P. Kuala Lumpur achieved -23.4% (273→209)—likely reflecting
+          infrastructure investments and expanded public transport. Perlis showed troubling deterioration +40.7% (54→76) requiring urgent investigation.
+          The scatter plot format enables immediate visual identification of outliers and system burden shifts.
+        </p>
+      </div>
     </section>
 
-    <!-- STEP 3: SPATIAL PATTERNS -->
-    <section class="chart-section">
-        <div class="section-header">
-            <h2>Step 3: Where Are the Risks?</h2>
-            <p class="section-subtitle">Which states are riskiest this year?</p>
-        </div>
-        <div class="chart-container full-width">
-            <h3>State Risk Map: Deaths per 100,000 (Year = <span class="year-linked">2019</span>)</h3>
-            <div id="chart4-choropleth" class="vis-chart"></div>
-            <p class="chart-caption">Small populations can yield high rates—use the Grouped Bar toggle to inspect absolute burden. Peaks: Perlis & Negeri Sembilan ~29.9; Trough: Sabah ~7.5</p>
-        </div>
+    <!-- COMPLETE STATE TRAJECTORIES -->
+    <section aria-labelledby="s6">
+      <h2 id="s6">Complete State Histories: Patterns Over Time (2003–2019)</h2>
+      <p class="method-box">
+        Small multiples present each state's full history on a common y-axis, supporting honest cross-state comparison and highlighting structural patterns.
+      </p>
+
+      <div class="viz-section">
+        <h3 class="viz-title">State Histories: Deaths (Common Scale)</h3>
+        <div class="viz-chart" id="chart7-trellis" role="img" aria-label="Small multiples of state deaths"></div>
+        <p class="viz-caption">
+          The small multiples format reveals temporal patterns impossible to discern from cross-sectional comparisons alone. Several distinct trajectory
+          types emerge: Sustained decline (W.P. KL, Perak, Kedah); Stable but concerning (Negeri Sembilan, Melaka); Troubling increases (Perlis, Sarawak, Johor).
+          The common scale is methodologically critical: it prevents visual distortion and immediately reveals that Selangor and Johor operate in a different
+          magnitude category from other states—their burden exceeds the next-largest state (Perak) by 50-60%.
+        </p>
+      </div>
     </section>
 
-    <!-- STEP 4: STATE COMPARISON -->
-    <section class="chart-section">
-        <div class="section-header">
-            <h2>Step 4: Risk vs Burden This Year</h2>
-            <p class="section-subtitle">Which states stand out on risk vs burden?</p>
-        </div>
-        <div class="two-column-charts">
-            <div class="chart-container">
-                <div class="chart-header">
-                    <h3>State Comparison (Year = <span class="year-linked">2019</span>)</h3>
-                    <div class="control-inline">
-                        <label class="toggle-label">
-                            <input type="checkbox" id="metric-toggle">
-                            <span>Show Absolute Deaths</span>
-                        </label>
-                    </div>
-                </div>
-                <div id="chart5-grouped-bar" class="vis-chart"></div>
-                <p class="chart-caption">Toggle to see both perspectives: rate (risk per person) vs absolute (total burden).</p>
-            </div>
-            <div class="chart-container">
-                <h3>States vs National Rate (Year = <span class="year-linked">2019</span>)</h3>
-                <div id="chart8-dot-plot" class="vis-chart"></div>
-                <p class="chart-caption">Above the line = above-national risk; below = lower-than-national risk.</p>
-            </div>
-        </div>
-        <div class="narrative-box">
-            <h4>Risk vs Burden</h4>
-            <p>Rate (risk) shows where people face higher personal danger; absolute (burden) shows where the most deaths occur. Use both lenses to prioritize interventions.</p>
-        </div>
+    <!-- DISCUSSION -->
+    <section aria-labelledby="disc">
+      <h2 id="disc">Discussion and Policy Implications</h2>
+      <p>
+        Malaysia's road safety landscape presents a complex picture requiring nuanced, differentiated interventions rather than uniform national
+        approaches. Three key findings emerge:
+      </p>
+      <h3>1. The Severity Paradox: National Progress with Local Variation</h3>
+      <p>
+        At the national level, Malaysia has improved crash survivability. Deaths per 100 crashes fell markedly over 2003–2016, consistent with safer
+        vehicles, stronger enforcement, engineering improvements, and better emergency care. However, this aggregate progress masks heterogeneity.
+        Crash volumes rose substantially over the same period, so exposure prevention—not only post‑crash mitigation—remains essential.
+      </p>
+      <h3>2. Geographic Heterogeneity Demands Differentiated Policy</h3>
+      <p>
+        Risk and burden concentrate unequally across states, requiring tailored interventions:
+      </p>
+      <p>
+        <strong>Risk-focused measures</strong> (for high per-capita rates): Perlis, Negeri Sembilan, Johor, Perak, Pahang all exceed 25 deaths per
+        100,000—well above the national average of 22.3. Interventions include intensive speed enforcement, blackspot engineering, behavioral campaigns.
+        Success model: W.P. KL achieved 11.7 per 100,000 despite extreme traffic density through infrastructure, public transport, and enforcement.
+      </p>
+      <p>
+        <strong>Burden-focused investments</strong> (for high absolute deaths): Selangor (1,054) and Johor (1,040) alone account for 32% of national
+deaths. These states require EMS capacity expansion, trauma center staffing, surge management protocols for festive periods.
+      </p>
+      <p>
+        <strong>Deterioration investigations</strong>: Perlis (+40.7% 2003-2019), Sarawak (+27.2%), Kelantan (+7.6%) require urgent diagnostic audits.
+        Federal government should mandate systematic reviews and corrective action plans.
+      </p>
+      <h3>3. Transparency and Accountability Through Standardized Metrics</h3>
+      <p>
+        Federal authorities should mandate annual state-level scorecards reporting population-standardized rates, absolute counts, and benchmark
+        deviations, with public disclosure and performance-linked resource allocation. States consistently above-average in risk should receive
+        targeted prevention resources; states with high absolute burdens should receive capacity investments; states showing deteriorating trends
+        should face mandatory audits and corrective plans.
+      </p>
     </section>
 
-    <!-- STEP 5: CHANGE OVER TIME -->
-    <section class="chart-section">
-        <div class="section-header">
-            <h2>Step 5: Change Over Time</h2>
-            <p class="section-subtitle">Who improved or worsened between two years?</p>
-        </div>
-        <div class="chart-container">
-            <div class="chart-header">
-                <h3>Change Over Time: Deaths (Year A vs Year B)</h3>
-                <div class="control-inline">
-                    <label for="scatter-year-a">Year A:</label>
-                    <select id="scatter-year-a"></select>
-                    <label for="scatter-year-b">Year B:</label>
-                    <select id="scatter-year-b"></select>
-                </div>
-            </div>
-            <div id="chart6-scatter" class="vis-chart"></div>
-            <p class="chart-caption">Points above the diagonal = worsened; below = improved. Notable: Perlis +40.7%, W.P. KL −23.4% (2003→2019).</p>
-        </div>
+    <!-- LIMITATIONS & DATA NOTES -->
+    <section aria-labelledby="limits">
+      <h2 id="limits">Limitations and Data Notes</h2>
+      <ul style="margin-left:18px;">
+        <li>National outcomes are complete through 2016; conclusions about national severity after 2016 are not drawn from these data.</li>
+        <li>State-reported totals (e.g., 2019) differ from WHO's modelled national estimate; values are presented transparently and not conflated.</li>
+        <li>Rates in small populations (e.g., Perlis, W.P. Putrajaya) are volatile; interpret alongside absolute counts and multi-year context.</li>
+        <li>Exposure by vehicle-kilometres travelled is not available at state level, limiting alternative normalisations and causal inference.</li>
+        <li>COVID-19 pandemic effects (2020-2021) are not addressed as this analysis focuses on structural pre-pandemic patterns.</li>
+        <li>Data quality varies by state; rural areas may underreport minor crashes, potentially understating true burden.</li>
+      </ul>
     </section>
 
-    <!-- STEP 6: FULL HISTORIES -->
-    <section class="chart-section">
-        <div class="section-header">
-            <h2>Step 6: State Histories</h2>
-            <p class="section-subtitle">What does the full 2003–2019 story look like for each state?</p>
-        </div>
-        <div class="chart-container full-width">
-            <h3>State Histories: 2003–2019 (Same Scale)</h3>
-            <div id="chart7-trellis" class="vis-chart"></div>
-            <p class="chart-caption">Each state's trajectory over 17 years on a consistent scale. Vertical line shows selected year.</p>
-        </div>
-        <div class="narrative-box">
-            <h4>Geography Shifts</h4>
-            <p>Risk hot spots are not fixed. Slide the Year to see how states move above or below the national benchmark.</p>
-        </div>
+    <!-- REFERENCES -->
+    <section class="references" aria-labelledby="refs">
+      <h2 id="refs">References</h2>
+      <ol>
+        <li>World Health Organization. Global Status Reports on Road Safety (country tables, 2000–2019). Geneva: WHO. Available at: https://www.who.int/publications/i/item/9789241565684</li>
+        <li>Malaysian Institute of Road Safety Research (MIROS). Road Safety Reports (national outcomes 1997–2016; state deaths 2003–2019). Kajang: MIROS.</li>
+        <li>Department of Statistics Malaysia. State population series (1995–2021) used to compute rates per 100,000 population. Putrajaya: DOSM.</li>
+        <li>Malaysian Road Safety Department (JKJR). Road crash statistics and annual reports (various years). Ministry of Transport Malaysia.</li>
+      </ol>
     </section>
+  </main>
 
-    <!-- CALL TO ACTION -->
-    <section class="cta-section">
-        <h2>Call to Action</h2>
-        <p>Use <strong>rate (risk)</strong> and <strong>absolute (burden)</strong> together when prioritizing interventions. High-rate states need targeted enforcement and infrastructure; high-burden states need scaled emergency response and trauma care.</p>
-    </section>
-
-    <!-- FOOTNOTES -->
-    <footer class="footer-notes">
-        <h3>Footnotes & Caveats</h3>
-        <ul>
-            <li>National outcomes are complete to 2016; charts using them (Area, Multi-series Line) stop at 2016 and show a vertical Year guide only when the selected Year is in range.</li>
-            <li>2019 state totals (6,167) differ from WHO modeled national total (7,181). Both are labeled where used.</li>
-            <li>"W.P. Kuala Lumpur" deaths are paired with Kuala Lumpur population for rate computations.</li>
-        </ul>
-    </footer>
-
-    <script src="js/dashboard.js"></script>
+  <script src="js/dashboard.js"></script>
 </body>
 </html>
