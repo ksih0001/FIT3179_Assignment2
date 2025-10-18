@@ -1,10 +1,16 @@
+// Font configuration for consistent typography
+const FONT_CONFIG = {
+    labelFont: "Segoe UI, Arial, sans-serif",
+    titleFont: "Segoe UI, Arial, sans-serif"
+};
+
 const COLORS = {
     blue: '#006BA4',
     picton: '#5F9ED1',
     sail: '#A2C8EC',
     orange: '#FF800E',
     mac: '#FFBC79',
-    tenne: '#C85200', // Malaysia 
+    tenne: '#C85200', // Malaysia
     mortar: '#595959',
     suva: '#898989',
     darkGray: '#ABABAB',
@@ -46,16 +52,21 @@ let chartViews = {
 // CROSS-CHART INTERACTIVITY
 // ============================================================================
 function toggleStateSelection(stateName) {
+    console.log('Toggle state selection called:', stateName);
+
     // Toggle selection
     if (selectedState === stateName) {
         selectedState = null;
+        console.log('Deselected state');
     } else {
         selectedState = stateName;
+        console.log('Selected state:', selectedState);
     }
 
     // Re-render charts with updated selection
+    console.log('Re-rendering charts with selection:', selectedState);
     renderChoropleth(globalYear);
-    renderGroupedBar(globalYear, document.getElementById('state-mode').value === 'absolute');
+    renderGroupedBar(globalYear, true);  // Fixed: removed non-existent element reference
     renderScatter();
     renderTrellis();
     renderDeviationBar(globalYear);
@@ -182,34 +193,66 @@ function renderSEABar(year) {
         "transform": [
             {"filter": `datum.year == ${year}`}
         ],
-        "mark": "bar",
-        "encoding": {
-            "y": {
-                "field": "country",
-                "type": "nominal",
-                "title": null,
-                "sort": "-x",
-                "axis": {"labelLimit": 150}
+        "layer": [
+            {
+                "mark": "bar",
+                "encoding": {
+                    "y": {
+                        "field": "country",
+                        "type": "nominal",
+                        "title": null,
+                        "sort": "-x",
+                        "axis": {"labelLimit": 150}
+                    },
+                    "x": {
+                        "field": "rate",
+                        "type": "quantitative",
+                        "title": "Deaths per 100,000 Population",
+                        "scale": {"domain": [0, 40]}
+                    },
+                    "color": {
+                        "condition": {
+                            "test": "datum.country == 'Malaysia'",
+                            "value": COLORS.tenne
+                        },
+                        "value": COLORS.blue
+                    },
+                    "tooltip": [
+                        {"field": "country", "title": "Country"},
+                        {"field": "rate", "title": "Rate per 100k", "format": ".1f"},
+                        {"field": "year", "title": "Year"}
+                    ]
+                }
             },
-            "x": {
-                "field": "rate",
-                "type": "quantitative",
-                "title": "Deaths per 100,000 Population",
-                "scale": {"domain": [0, 40]}
-            },
-            "color": {
-                "condition": {
-                    "test": "datum.country == 'Malaysia'",
-                    "value": COLORS.tenne
+            {
+                "mark": {
+                    "type": "text",
+                    "align": "left",
+                    "dx": 5,
+                    "fontSize": 12,
+                    "fontWeight": "bold"
                 },
-                "value": COLORS.blue
-            },
-            "tooltip": [
-                {"field": "country", "title": "Country"},
-                {"field": "rate", "title": "Rate per 100k", "format": ".1f"},
-                {"field": "year", "title": "Year"}
-            ]
-        }
+                "encoding": {
+                    "y": {
+                        "field": "country",
+                        "type": "nominal",
+                        "sort": "-x"
+                    },
+                    "x": {
+                        "field": "rate",
+                        "type": "quantitative"
+                    },
+                    "text": {
+                        "field": "rate",
+                        "type": "quantitative",
+                        "format": ".1f"
+                    },
+                    "color": {
+                        "value": "#1a1a1a"
+                    }
+                }
+            }
+        ]
     };
 
     vegaEmbed('#chart1-sea-bar', spec, {actions: false, tooltip: {theme: 'custom'}})
@@ -276,7 +319,7 @@ function renderStackedArea() {
             // Annotation text - line 1
             {
                 "data": {"values": [{"text": "The Severity Paradox:"}]},
-                "mark": {"type": "text", "fontSize": 11, "fontWeight": "bold", "align": "left", "color": COLORS.mortar},
+                "mark": {"type": "text", "fontSize": 12, "fontWeight": "bold", "align": "left", "color": COLORS.mortar},
                 "encoding": {
                     "x": {"value": 270},
                     "y": {"value": 35},
@@ -286,7 +329,7 @@ function renderStackedArea() {
             // Annotation text - line 2
             {
                 "data": {"values": [{"text": "Total casualties ↓64%"}]},
-                "mark": {"type": "text", "fontSize": 10, "align": "left", "color": COLORS.mortar, "fontWeight": "bold"},
+                "mark": {"type": "text", "fontSize": 12, "align": "left", "color": COLORS.mortar, "fontWeight": "bold"},
                 "encoding": {
                     "x": {"value": 270},
                     "y": {"value": 53},
@@ -296,7 +339,7 @@ function renderStackedArea() {
             // Annotation text - line 3
             {
                 "data": {"values": [{"text": "BUT Deaths ↑14%"}]},
-                "mark": {"type": "text", "fontSize": 10, "align": "left", "color": COLORS.mortar, "fontWeight": "bold"},
+                "mark": {"type": "text", "fontSize": 12, "align": "left", "color": COLORS.mortar, "fontWeight": "bold"},
                 "encoding": {
                     "x": {"value": 270},
                     "y": {"value": 70},
@@ -306,7 +349,7 @@ function renderStackedArea() {
             // Annotation text - line 4
             {
                 "data": {"values": [{"text": "(2003–2016)"}]},
-                "mark": {"type": "text", "fontSize": 9, "align": "left", "color": COLORS.mortar, "fontStyle": "italic"},
+                "mark": {"type": "text", "fontSize": 12, "align": "left", "color": COLORS.mortar, "fontStyle": "italic"},
                 "encoding": {
                     "x": {"value": 270},
                     "y": {"value": 85},
@@ -361,7 +404,7 @@ function renderMultiLine() {
                         }
                             },
                             {
-                                "mark": {"type": "text", "align": "center", "dy": -10, "fontWeight": "bold", "fontSize": 11, "color": COLORS.blue},
+                                "mark": {"type": "text", "align": "center", "dy": -10, "fontWeight": "bold", "fontSize": 12, "color": COLORS.blue},
                                 "encoding": {
                                     "x": {"datum": 2009.5},
                                     "y": {"datum": 20000000},
@@ -400,7 +443,7 @@ function renderMultiLine() {
                         }
                             },
                             {
-                                "mark": {"type": "text", "align": "center", "dy": -10, "fontWeight": "bold", "fontSize": 11, "color": COLORS.orange},
+                                "mark": {"type": "text", "align": "center", "dy": -10, "fontWeight": "bold", "fontSize": 12, "color": COLORS.orange},
                                 "encoding": {
                                     "x": {"datum": 2009.5},
                                     "y": {"datum": 400000},
@@ -439,7 +482,7 @@ function renderMultiLine() {
                         }
                             },
                             {
-                                "mark": {"type": "text", "align": "center", "dy": -10, "fontWeight": "bold", "fontSize": 11, "color": COLORS.mortar},
+                                "mark": {"type": "text", "align": "center", "dy": -10, "fontWeight": "bold", "fontSize": 12, "color": COLORS.mortar},
                                 "encoding": {
                                     "x": {"datum": 2009.5},
                                     "y": {"datum": 6850},
@@ -532,7 +575,7 @@ function renderChoropleth(year) {
             {
                 // Highest rate badge
                 "data": {"values": [{"label": `Highest rate: ${highest.state_title} (${highest.death_rate.toFixed(1)})`}]},
-                "mark": {"type": "text", "fontSize": 11, "fill": COLORS.mortar, "align": "left"},
+                "mark": {"type": "text", "fontSize": 12, "fill": COLORS.mortar, "align": "left"},
                 "encoding": {
                     "x": {"value": 20},
                     "y": {"value": 40},
@@ -542,7 +585,7 @@ function renderChoropleth(year) {
             {
                 // Lowest rate badge
                 "data": {"values": [{"label": `Lowest rate: ${lowest.state_title} (${lowest.death_rate.toFixed(1)})`}]},
-                "mark": {"type": "text", "fontSize": 11, "fill": COLORS.mortar, "align": "left"},
+                "mark": {"type": "text", "fontSize": 12, "fill": COLORS.mortar, "align": "left"},
                 "encoding": {
                     "x": {"value": 20},
                     "y": {"value": 55},
@@ -625,7 +668,7 @@ function renderGroupedBar(year, showAbsolute) {
             "encoding": {"x": {"datum": nationalRate}}
         });
         layers.push({
-            "mark": {"type": "text", "align": "left", "dx": 5, "dy": 220, "fontSize": 11, "fontWeight": "bold", "color": COLORS.mortar},
+            "mark": {"type": "text", "align": "left", "dx": 5, "dy": 220, "fontSize": 12, "fontWeight": "bold", "color": COLORS.mortar},
             "encoding": {
                 "x": {"datum": nationalRate},
                 "text": {"datum": `National Avg: ${nationalRate.toFixed(1)}`}
@@ -754,7 +797,7 @@ function renderScatter() {
             // Box title - Top Improvers
             {
                 "data": {"values": [{"text": "Top 3 Improvers (↓)"}]},
-                "mark": {"type": "text", "fontSize": 10, "fontWeight": "bold", "align": "left", "color": COLORS.mortar},
+                "mark": {"type": "text", "fontSize": 12, "fontWeight": "bold", "align": "left", "color": COLORS.mortar},
                 "encoding": {
                     "x": {"value": 20},
                     "y": {"value": 25},
@@ -763,7 +806,7 @@ function renderScatter() {
             },
             ...topImprovers.map((d, i) => ({
                 "data": {"values": [{"text": `${i+1}. ${d.state}: ${d.pct_change.toFixed(1)}%`}]},
-                "mark": {"type": "text", "fontSize": 9, "align": "left", "color": COLORS.mortar, "fontWeight": "bold"},
+                "mark": {"type": "text", "fontSize": 12, "align": "left", "color": COLORS.mortar, "fontWeight": "bold"},
                 "encoding": {
                     "x": {"value": 25},
                     "y": {"value": 40 + i * 12},
@@ -773,7 +816,7 @@ function renderScatter() {
             // Box title - Top Decliners
             {
                 "data": {"values": [{"text": "Top 3 Decliners (↑)"}]},
-                "mark": {"type": "text", "fontSize": 10, "fontWeight": "bold", "align": "left", "color": COLORS.mortar},
+                "mark": {"type": "text", "fontSize": 12, "fontWeight": "bold", "align": "left", "color": COLORS.mortar},
                 "encoding": {
                     "x": {"value": 20},
                     "y": {"value": 85},
@@ -782,7 +825,7 @@ function renderScatter() {
             },
             ...topDecliners.map((d, i) => ({
                 "data": {"values": [{"text": `${i+1}. ${d.state}: +${d.pct_change.toFixed(1)}%`}]},
-                "mark": {"type": "text", "fontSize": 9, "align": "left", "color": COLORS.mortar, "fontWeight": "bold"},
+                "mark": {"type": "text", "fontSize": 12, "align": "left", "color": COLORS.mortar, "fontWeight": "bold"},
                 "encoding": {
                     "x": {"value": 25},
                     "y": {"value": 100 + i * 12},
@@ -825,13 +868,13 @@ function renderTrellis() {
                 "x": {
                     "field": "year",
                     "type": "quantitative",
-                    "axis": {"title": "Year", "format": "d", "tickCount": 5, "labelFontSize": 9},
+                    "axis": {"title": "Year", "format": "d", "tickCount": 5, "labelFontSize": 12},
                     "scale": {"domain": [2003, 2019]}
                 },
                 "y": {
                     "field": "deaths",
                     "type": "quantitative",
-                    "axis": {"title": "Deaths", "tickCount": 5, "labelFontSize": 9},
+                    "axis": {"title": "Deaths", "tickCount": 5, "labelFontSize": 12},
                     "scale": {"zero": true, "domain": [0, 1200]}
                 },
                 "color": {
@@ -941,7 +984,7 @@ function renderDeviationBar(year) {
             // Annotation: Above average
             {
                 "data": {"values": [{"label": "Above National Avg"}]},
-                "mark": {"type": "text", "fontSize": 11, "fontWeight": "bold", "color": COLORS.tenne, "align": "right"},
+                "mark": {"type": "text", "fontSize": 12, "fontWeight": "bold", "color": COLORS.tenne, "align": "right"},
                 "encoding": {
                     "x": {"value": 410},
                     "y": {"value": 430},
@@ -951,7 +994,7 @@ function renderDeviationBar(year) {
             // Annotation: Below average
             {
                 "data": {"values": [{"label": "Below National Avg"}]},
-                "mark": {"type": "text", "fontSize": 11, "fontWeight": "bold", "color": COLORS.picton, "align": "left"},
+                "mark": {"type": "text", "fontSize": 12, "fontWeight": "bold", "color": COLORS.picton, "align": "left"},
                 "encoding": {
                     "x": {"value": 40},
                     "y": {"value": 20},
