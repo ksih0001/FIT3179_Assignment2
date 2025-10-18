@@ -10,102 +10,8 @@
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.20.1"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.25.0"></script>
 
-  <style>
-    /* Reset and base */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      line-height: 1.6;
-      color: #1a1a1a;
-      background: #ffffff;
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 24px;
-      overflow-x: hidden;
-    }
-    html { overflow-x: hidden; }
-    a.skip-link { position: absolute; top: -40px; left: 0; background: #000; color: #fff; padding: 8px; text-decoration: none; }
-    a.skip-link:focus { top: 0; }
-
-    /* Header */
-    header {
-      text-align: center;
-      border-bottom: 3px solid #b71c1c;
-      padding-bottom: 20px;
-      margin-bottom: 28px;
-    }
-    header h1 { font-size: 2.2rem; font-weight: 700; letter-spacing: -0.3px; }
-    header .subtitle { color: #555; margin-top: 6px; }
-    header .metadata { color: #666; font-size: 0.9rem; margin-top: 10px; }
-    header .metadata strong { color: #1a1a1a; }
-
-    /* Sections */
-    section { margin-bottom: 48px; page-break-inside: avoid; }
-    section h2 {
-      font-size: 1.6rem; font-weight: 700;
-      border-bottom: 2px solid #b71c1c; padding-bottom: 8px; margin-bottom: 14px;
-    }
-    section h3 { font-size: 1.15rem; font-weight: 600; margin: 16px 0 10px; }
-    section p { text-align: justify; margin-bottom: 10px; font-size: 0.96rem; }
-
-    /* Key findings */
-    .key-findings { background: #fafafa; padding: 20px; border-radius: 4px; }
-    .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
-    .stat-item { background: #fff; padding: 14px; text-align: center; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
-    .stat-value { font-size: 1.9rem; font-weight: 700; color: #b71c1c; display: block; }
-    .stat-label { color: #444; font-size: 0.9rem; line-height: 1.35; }
-
-    /* Abstract box */
-    .abstract-box { padding: 16px 0px; }
-
-    /* Framing/notes boxes */
-    .terminology {
-      background: #eef7ff;
-      border: 1px solid #1e88e5;
-      border-left: 4px solid #1e88e5;
-      padding: 16px 18px;
-      margin-top: 12px;
-      border-radius: 4px;
-    }
-    .insight-box, .method-box {
-      padding: 16px 0px; margin-top: 12px;
-    }
-
-    /* Viz scaffolding */
-    .viz-section { margin-top: 18px; background: #fafafa; border-radius: 4px; padding: 18px; }
-    .viz-title { text-align: center; font-weight: 600; }
-    .viz-controls { background: #fff; border-radius: 4px; padding: 12px; margin: 12px 0; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
-    .control-row { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
-    .control-row:last-child { margin-bottom: 0; }
-    .control-row label { min-width: 90px; font-weight: 600; }
-    .control-row input[type="range"] { flex: 1; }
-    .control-row input[type="checkbox"] { margin-right: 8px; }
-    .control-row select { padding: 5px 10px; font-size: 0.95rem; border: 1px solid #ccc; border-radius: 2px; }
-    .year-value { font-weight: 700; color: #b71c1c; }
-    .viz-chart { background: #fff; min-height: 380px; padding: 14px; margin-top: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); text-align: center; }
-    .viz-chart > div { display: inline-block; }
-    .viz-caption { font-size: 0.88rem; color: #555; font-style: italic; margin-top: 10px; text-align: justify; }
-
-    /* 2-column layout */
-    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
-    .col { background: #fafafa; border-radius: 4px; padding: 18px; }
-
-    /* References & footer */
-    .references { border-top: 1px solid #ccc; padding-top: 16px; }
-    .references ol { padding-left: 24px; line-height: 1.7; font-size: 0.92rem; }
-    footer { margin-top: 42px; border-top: 2px solid #b71c1c; padding-top: 12px; text-align: center; color: #666; font-size: 0.88rem; }
-
-    /* Responsive */
-    @media (max-width: 980px){ .stats-grid{ grid-template-columns:repeat(2,1fr);} .two-col{ grid-template-columns:1fr; } }
-    @media (max-width: 600px){
-      header h1{ font-size:1.6rem; } .stats-grid{ grid-template-columns:1fr; }
-      .control-row{ flex-direction:column; align-items:flex-start; }
-      .control-row label{ min-width:auto; }
-    }
-    @media print{
-      .viz-controls{ display:none; } section{ page-break-inside:avoid; } body{ background:#fff; }
-    }
-  </style>
+  <!-- External CSS -->
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -390,7 +296,7 @@ deaths. These states require EMS capacity expansion, trauma center staffing, sur
     <!-- LIMITATIONS & DATA NOTES -->
     <section aria-labelledby="limits">
       <h2 id="limits">Limitations and Data Notes</h2>
-      <ul style="margin-left:18px;">
+      <ul>
         <li>National outcomes are complete through 2016; conclusions about national severity after 2016 are not drawn from these data.</li>
         <li>State-reported totals (e.g., 2019) differ from WHO's modelled national estimate; values are presented transparently and not conflated.</li>
         <li>Rates in small populations (e.g., Perlis, W.P. Putrajaya) are volatile; interpret alongside absolute counts and multi-year context.</li>
