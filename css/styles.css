@@ -1,21 +1,7 @@
 /* Color Variables */
 :root {
-    --blue: #006BA4;
-    --orange: #FF800E;
-    --dark-gray: #ABABAB;
-    --mortar: #595959;
-    --picton: #5F9ED1;
-    --tenne: #C85200;  /* Malaysia highlight color */
-    --suva: #898989;
-    --sail: #A2C8EC;
-    --mac: #FFBC79;
-    --light-gray: #CFCFCF;
-    --white: #FFFFFF;
-    --bg-light: #F8F9FA;
-
-    /* Typography */
-    --font-primary: "Segoe UI", Arial, sans-serif;
-    --font-system: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+    --font-primary: Roboto, sans-serif;
+    --font-system: Roboto, sans-serif;
 }
 
 /* Reset & Base */
@@ -31,15 +17,16 @@ body {
     color: #1a1a1a;
     background: #ffffff;
     max-width: 1400px;
-    margin: 0 auto;
+    margin: 0 auto; /*center the page horizontally*/
     padding: 24px;
-    overflow-x: hidden;
+    overflow-x: hidden; /*prevent horizontal scrollbar*/
 }
 
 html {
-    overflow-x: hidden;
+    overflow-x: hidden; /*prevent horizontal scrollbar*/
 }
 
+/*Hidden link to skip header*/
 a.skip-link {
     position: absolute;
     top: -40px;
@@ -51,14 +38,14 @@ a.skip-link {
 }
 
 a.skip-link:focus {
-    top: 0;
+    top: 0; /*trigger by tab*/
 }
 
 /* Header */
 header {
     text-align: center;
     border-bottom: 3px solid #b71c1c;
-    padding-bottom: 20px;
+    padding-bottom: 20px; /*space between test and line*/
     margin-bottom: 28px;
 }
 
@@ -68,25 +55,25 @@ header h1 {
     letter-spacing: -0.3px;
 }
 
-header .subtitle {
+header.subtitle {
     color: #555;
     margin-top: 6px;
 }
 
-header .metadata {
+header.metadata {
     color: #666;
     font-size: 0.75rem;  /* 12px */
     margin-top: 10px;
 }
 
-header .metadata strong {
+header.metadata strong {
     color: #1a1a1a;
 }
 
 /* Sections */
 section {
-    margin-bottom: 48px;
-    page-break-inside: avoid;
+    margin-bottom: 48px; /*space above*/
+    page-break-inside: avoid; /*avoid split sections across pages*/
 }
 
 section h2 {
@@ -122,7 +109,7 @@ section ul {
 
 .stats-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, 1fr);/*4 column*/
     gap: 18px;
 }
 
@@ -169,8 +156,8 @@ section ul {
 /* Viz scaffolding */
 .viz-section {
     margin-top: 18px;
-    background: #fafafa;
-    border-radius: 4px;
+    background: #fafafa; /*light grey*/
+    border-radius: 4px; /*rounded corner*/
     padding: 18px;
 }
 
@@ -179,6 +166,7 @@ section ul {
     font-weight: 600;
 }
 
+/*slider control*/
 .viz-controls {
     background: #fff;
     border-radius: 4px;
@@ -198,11 +186,13 @@ section ul {
     margin-bottom: 0;
 }
 
-.control-row label {
+/*make all label same width*/
+.control-row label { 
     min-width: 90px;
     font-weight: 600;
 }
 
+/*slider takes*/
 .control-row input[type="range"] {
     flex: 1;
 }
@@ -228,10 +218,11 @@ section ul {
     min-height: 380px;
     padding: 14px;
     margin-top: 12px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08); /*[horizontal] [vertical] [blur] [color]*/
     text-align: center;
 }
 
+/*injects a <div> containing SVG chart*/
 .viz-chart > div {
     display: inline-block;
 }
@@ -239,7 +230,7 @@ section ul {
 .viz-caption {
     font-size: 0.75rem;
     color: #555;
-    font-style: italic;
+    font-style: normal;
     margin-top: 10px;
     text-align: justify;
 }
@@ -247,12 +238,12 @@ section ul {
 /* 2-column layout */
 .two-col {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;/*2 equal coloumn*/
     gap: 22px;
 }
 
 .col {
-    background: #fafafa;
+    background: #fafafa; /*ligh grey*/
     border-radius: 4px;
     padding: 18px;
 }
@@ -278,7 +269,7 @@ footer {
     font-size: 0.75rem;
 }
 
-/* Responsive */
+/* Apply styles only when condition is true */
 @media (max-width: 980px) {
     .stats-grid {
         grid-template-columns: repeat(2, 1fr);

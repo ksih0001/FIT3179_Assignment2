@@ -1,7 +1,7 @@
-// Font configuration for consistent typography
+// Font configuration for consistent typography - Single sans-serif font (Roboto)
 const FONT_CONFIG = {
-    labelFont: "Segoe UI, Arial, sans-serif",
-    titleFont: "Segoe UI, Arial, sans-serif"
+    labelFont: "Roboto, sans-serif",
+    titleFont: "Roboto, sans-serif"
 };
 
 const COLORS = {
@@ -48,33 +48,24 @@ let chartViews = {
     trellis: null
 };
 
-// ============================================================================
 // CROSS-CHART INTERACTIVITY
-// ============================================================================
 function toggleStateSelection(stateName) {
-    console.log('Toggle state selection called:', stateName);
-
     // Toggle selection
     if (selectedState === stateName) {
         selectedState = null;
-        console.log('Deselected state');
     } else {
         selectedState = stateName;
-        console.log('Selected state:', selectedState);
     }
 
     // Re-render charts with updated selection
-    console.log('Re-rendering charts with selection:', selectedState);
     renderChoropleth(globalYear);
-    renderGroupedBar(globalYear, true);  // Fixed: removed non-existent element reference
+    renderGroupedBar(globalYear, true);  
     renderScatter();
     renderTrellis();
     renderDeviationBar(globalYear);
 }
 
-// ============================================================================
 // INITIALIZATION
-// ============================================================================
 document.addEventListener('DOMContentLoaded', function() {
     fetch('data/combined_state_data.json')
         .then(response => response.json())
@@ -86,7 +77,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function initializeDashboard() {
-    // Setup SEA year control (slider)
+    // Link to HTML slider
     const seaYearSlider = document.getElementById('sea-year');
     const seaYearDisplay = document.getElementById('sea-year-display');
     const seaYearText = document.getElementById('sea-year-text');
@@ -100,7 +91,7 @@ function initializeDashboard() {
         });
     }
 
-    // Setup map year control
+    // Setup map year control across 3 chart (choropleth, bar, deviation)
     const mapYearSlider = document.getElementById('map-year');
     const mapYearDisplay = document.getElementById('map-year-display');
     const mapYearText = document.getElementById('map-year-text');
@@ -115,14 +106,14 @@ function initializeDashboard() {
         });
     }
 
-    // Setup scatter year controls
+    // Setup scatter year dropdown
     populateScatterYearDropdowns();
     const scatterYearA = document.getElementById('scatter-year-a');
     const scatterYearB = document.getElementById('scatter-year-b');
-    if (scatterYearA) scatterYearA.addEventListener('change', renderScatter);
-    if (scatterYearB) scatterYearB.addEventListener('change', renderScatter);
+    if (scatterYearA) scatterYearA.addEventListener('change', renderScatter());
+    if (scatterYearB) scatterYearB.addEventListener('change', renderScatter());
 
-    // Setup metric toggle
+    // Setup metric toggle (absolute vs rate)
     const metricToggle = document.getElementById('metric-toggle');
     if (metricToggle) {
         metricToggle.addEventListener('change', function(e) {
@@ -139,8 +130,6 @@ function initializeDashboard() {
     renderScatter();
     renderTrellis();
     renderDeviationBar(globalYear);
-
-    console.log('Dashboard initialized');
 }
 
 function updateYearLinkedDisplays() {
@@ -159,7 +148,11 @@ function updateGlobalYearCharts() {
 }
 
 function populateScatterYearDropdowns() {
-    const years = [...new Set(stateData.map(d => d.year))].sort();
+    // Generate array of years from 2003 to 2019
+    const years = [];
+    for (let year = 2003; year <= 2019; year++) {
+        years.push(year);
+    }
     const selectA = document.getElementById('scatter-year-a');
     const selectB = document.getElementById('scatter-year-b');
 
@@ -180,10 +173,7 @@ function populateScatterYearDropdowns() {
     });
 }
 
-
-// ============================================================================
 // CHART 1: SEA HORIZONTAL BAR 
-// ============================================================================
 function renderSEABar(year) {
     const spec = {
         "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
@@ -259,9 +249,7 @@ function renderSEABar(year) {
         .catch(err => console.error('Error rendering SEA bar:', err));
 }
 
-// ============================================================================
 // CHART 2: STACKED AREA
-// ============================================================================
 function renderStackedArea() {
     const spec = {
         "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
@@ -363,11 +351,8 @@ function renderStackedArea() {
         .catch(err => console.error('Error rendering stacked area:', err));
 }
 
-// ============================================================================
 // CHART 3: STACKED SMALL MULTIPLES 
-// ============================================================================
 function renderMultiLine() {
-    // Fetch and pre-process data
     fetch('data/national_exposure.json')
         .then(response => response.json())
         .then(rawData => {
@@ -501,9 +486,7 @@ function renderMultiLine() {
         .catch(err => console.error('Error loading exposure data:', err));
 }
 
-// ============================================================================
 // CHART 4: CHOROPLETH MAP 
-// ============================================================================
 function renderChoropleth(year) {
     const filteredData = stateData.filter(d => d.year === year);
     const mappedData = filteredData.map(d => ({
@@ -607,9 +590,7 @@ function renderChoropleth(year) {
         .catch(err => console.error('Error rendering choropleth:', err));
 }
 
-// ============================================================================
 // CHART 5: GROUPED BAR (STATE COMPARISON)
-// ============================================================================
 function renderGroupedBar(year, showAbsolute) {
     const filteredData = stateData.filter(d => d.year === year);
     const field = showAbsolute ? "deaths" : "death_rate";
@@ -696,9 +677,7 @@ function renderGroupedBar(year, showAbsolute) {
         .catch(err => console.error('Error rendering grouped bar:', err));
 }
 
-// ============================================================================
 // CHART 6: SCATTER (CHANGE OVER TIME)
-// ============================================================================
 function renderScatter() {
     const yearASelect = document.getElementById('scatter-year-a');
     const yearBSelect = document.getElementById('scatter-year-b');
@@ -847,9 +826,7 @@ function renderScatter() {
         .catch(err => console.error('Error rendering scatter:', err));
 }
 
-// ============================================================================
-// CHART 7: TRELLIS (Fixed: proper sizing to show all 14 states)
-// ============================================================================
+// CHART 7: TRELLIS 
 function renderTrellis() {
     const spec = {
         "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
@@ -912,9 +889,7 @@ function renderTrellis() {
         .catch(err => console.error('Error rendering trellis:', err));
 }
 
-// ============================================================================
 // CHART 8: DEVIATION BAR (STATES VS NATIONAL AVERAGE)
-// ============================================================================
 function renderDeviationBar(year) {
     const filteredData = stateData.filter(d => d.year === year);
 
@@ -1015,5 +990,3 @@ function renderDeviationBar(year) {
         })
         .catch(err => console.error('Error rendering deviation bar:', err));
 }
-
-console.log('Dashboard script loaded');
