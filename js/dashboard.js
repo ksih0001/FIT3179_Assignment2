@@ -110,8 +110,8 @@ function initializeDashboard() {
     populateScatterYearDropdowns();
     const scatterYearA = document.getElementById('scatter-year-a');
     const scatterYearB = document.getElementById('scatter-year-b');
-    if (scatterYearA) scatterYearA.addEventListener('change', renderScatter());
-    if (scatterYearB) scatterYearB.addEventListener('change', renderScatter());
+    if (scatterYearA) scatterYearA.addEventListener('change', renderScatter);
+    if (scatterYearB) scatterYearB.addEventListener('change', renderScatter);
 
     // Setup metric toggle (absolute vs rate)
     const metricToggle = document.getElementById('metric-toggle');
@@ -317,7 +317,7 @@ function renderStackedArea() {
             // Annotation text - line 2
             {
                 "data": {"values": [{"text": "Total casualties ↓64%"}]},
-                "mark": {"type": "text", "fontSize": 12, "align": "left", "color": COLORS.mortar, "fontWeight": "bold"},
+                "mark": {"type": "text", "fontSize": 12, "align": "left", "color": COLORS.mortar},
                 "encoding": {
                     "x": {"value": 270},
                     "y": {"value": 53},
@@ -785,7 +785,7 @@ function renderScatter() {
             },
             ...topImprovers.map((d, i) => ({
                 "data": {"values": [{"text": `${i+1}. ${d.state}: ${d.pct_change.toFixed(1)}%`}]},
-                "mark": {"type": "text", "fontSize": 12, "align": "left", "color": COLORS.mortar, "fontWeight": "bold"},
+                "mark": {"type": "text", "fontSize": 12, "align": "left", "color": COLORS.mortar},
                 "encoding": {
                     "x": {"value": 25},
                     "y": {"value": 40 + i * 12},
@@ -804,7 +804,7 @@ function renderScatter() {
             },
             ...topDecliners.map((d, i) => ({
                 "data": {"values": [{"text": `${i+1}. ${d.state}: +${d.pct_change.toFixed(1)}%`}]},
-                "mark": {"type": "text", "fontSize": 12, "align": "left", "color": COLORS.mortar, "fontWeight": "bold"},
+                "mark": {"type": "text", "fontSize": 12, "align": "left", "color": COLORS.mortar},
                 "encoding": {
                     "x": {"value": 25},
                     "y": {"value": 100 + i * 12},
